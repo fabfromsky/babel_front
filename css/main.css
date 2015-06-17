@@ -1,0 +1,90 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+header.gameboard_header {
+  height: 40px;
+  width: 100%;
+  background: #C1B39A;
+  line-height: 40px;
+}
+
+.gameboard_babel_icon {
+  width: 40px;
+  display: inline-block;
+  text-align: center;
+}
+
+.gameboard_babel_icon img {
+  height: 20px;
+  width: 20px;
+}
+
+.gameboard_baseline {
+  color: #fff;
+}
+
+.content {
+  height: calc( 100% - 40px );
+  width: 100%;
+  font-size: 0;
+}
+
+.gameboard_side_bar {
+  height: 100%;
+  width: 40px;
+  background: #C1B39A;
+  color: #fff;
+  display: inline-block;
+}
+
+.gameboard_side_bar .user_bloc {
+  height: ;
+}
+
+.gameboard_side_bar .side_bar_icon {
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.gameboard_side_bar .side_bar_icon .shutter_btn {
+  color: #fff;
+}
+
+.gameboard_shutter_left {
+  width: 300px;
+  height: 100%;
+  background: #C1B39A;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 12px;
+}
+
+.gameboard_main {
+  width: calc( 100% - 40px );
+  height: 100%;
+  display: inline-block;
+  font-size: 12px;
+  vertical-align: top;
+}
+
+.gameboard_main.opened_shutter {
+  width: calc( 100% - 340px );
+}
+
+.gameboard_main nav {
+  position: absolute;
+  right: 20px;
+  font-size: 14px;
+}
+

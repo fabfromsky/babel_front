@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>Babel Game Board</title>
+
+    <link rel="stylesheet" type="text/css" href="css/font-awesome-4.3.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="js/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+  </head>
+
+  <body class="gameboard">
+    <header class="gameboard_header">
+        <span class="gameboard_babel_icon">
+            <img src="imgs/logo.png"/>
+        </span>
+        <span class="gameboard_baseline">
+            Babel Game Board
+        </span>
+    </header>
+    <div class="content">
+        <span class="gameboard_side_bar">
+            <div class="side_bar_bloc user_bloc">
+                <div class="side_bar_icon">
+                    <a href="#" class="shutter_btn">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="side_bar_bloc challenges_bloc">
+                <div class="side_bar_icon">
+                    <i class="fa fa-bell"></i>
+                </div>
+            </div>
+            <div class="side_bar_bloc messenger_bloc">
+                <div class="side_bar_icon">
+                    <i class="fa fa-comments"></i>
+                </div>
+            </div>
+        </span>
+        <span class="gameboard_shutter_left hide">
+            <div class="shutter_bloc user_bloc">
+            </div>
+            <div class="shutter_bloc challenges_bloc">
+            </div>
+            <div class="shutter_bloc messenger_bloc">
+            </div>
+        </span>
+        <span class="gameboard_main">
+            <nav class="navbar gameboard_nav">
+                <div class="container-fluid">
+                    <ul class="nav navbar-nav gameboard_nav_links">
+                        <li class="active nav_link">
+                            <a href="#"><i class="fa fa-th-large"></i> Game Board</a>
+                        </li>
+                        <li class="nav_btn">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-bar-chart"></i> Statistiques <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Défis</a></li>
+                                <li><a href="#">Statistiques</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav_btn">
+                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user"></i> Mon compte <span class="caret"></span></a>
+                             <ul class="dropdown-menu">
+                                <li><a href="#">Paramètres</a></li>
+                                <li><a href="#">Supprimer mon compte</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav_btn">
+                            <a href="#" role="button"><i class="fa fa-user-plus"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </span>
+        <span class="gameboard_shutter_right">
+        </span>
+    </div>
+  </body>
+  </html>
