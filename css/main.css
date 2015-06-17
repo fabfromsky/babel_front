@@ -31,6 +31,11 @@ header.gameboard_header {
   color: #fff;
 }
 
+.gameboard_header .user.right {
+  position: absolute;
+  right: 20px;
+}
+
 .content {
   height: calc( 100% - 40px );
   width: 100%;
@@ -45,8 +50,22 @@ header.gameboard_header {
   display: inline-block;
 }
 
-.gameboard_side_bar .user_bloc {
-  height: ;
+.gameboard_side_bar .side_bar_bloc,
+.shutter_bloc {
+  border-bottom: 1px solid #fff;
+  box-sizing: border-box;
+}
+
+.user_bloc {
+  height: 100px;
+}
+
+.challenges_bloc {
+  height: 200px;
+}
+
+.messenger_bloc {
+  height: calc( 100% - 300px);
 }
 
 .gameboard_side_bar .side_bar_icon {
@@ -84,7 +103,32 @@ header.gameboard_header {
 
 .gameboard_main nav {
   position: absolute;
+  height:50px;
   right: 20px;
   font-size: 14px;
+}
+
+.gameboard_main .main_content {
+  height: calc( 100% - 70px );
+  width: 100%;
+  margin-top: 70px;
+  position: relative;
+}
+
+.main_content .games_container {
+  position:  absolute;
+  height: 600px;
+  width: 800px;
+  margin-top: -300px;
+  top: 50%;
+  left: 50%;
+  margin-left: -400px;
+}
+
+.games_container li {
+  height: 200px;
+  width: 200px;
+  margin: 5px;
+  display: inline-block;
 }
 
