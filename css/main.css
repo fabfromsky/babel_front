@@ -240,9 +240,25 @@ header a {
 }
 
 .games_container li {
+  position: relative;
   height: 200px;
   width: 200px;
   margin: 5px;
   display: inline-block;
+  background-size: cover;
+  padding-top: 20px;
+  border: 1px solid #333;
+}
+
+.games_container li .title {
+  position: absolute;
+  bottom: 20px;
+  height: 30px;
+  background-color: #c7b299;;
+  width: 150px;
+  line-height: 30px;
+  padding-left: 10px;
+  color: #fff;
+  font-weight: bold;
 }
 

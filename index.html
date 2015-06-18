@@ -65,13 +65,14 @@
         </span>
         <span class="gameboard_shutter_left hide">
             <div class="shutter_bloc user_bloc">
-                <span class="user_bloc_img"><img src="imgs/claratatouille.jpg"/></span>
-                <span class="user_bloc_user">
-                </span>
+                
             </div>
             <script id="user-tpl" type="x-handlebars-template">
-                <div class="user_username">{{ username }}</div>
-                <div class="user_score">{{ userScore }} pts</div>
+                <span class="user_bloc_img"><img src="imgs/{{ userImg }}" /></span>
+                <span class="user_bloc_user">
+                    <div class="user_username">{{ username }}</div>
+                    <div class="user_score">{{ userScore }} pts</div>
+                </span> 
             </script>
             <div class="shutter_bloc challenges_bloc">
             </div>
@@ -155,7 +156,7 @@
                     </ul>
                     <script id="games-tpl" type="x-handlebars-template">
                         {{#each this}}
-                        <li class="games">
+                        <li class="games" style="background-image: url('imgs/{{gameImg}}')">
                             <a href={{gameUrl}}>
                                 <div class="title">{{gameName}}</div>
                             </a>

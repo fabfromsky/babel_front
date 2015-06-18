@@ -21,6 +21,6 @@ function getUser(username){
 
     var userTplScript = $("#user-tpl").html();
     var userTpl = Handlebars.compile(userTplScript);
-    $(".user_bloc_user").append(userTpl(userData));
+    $(".shutter_bloc.user_bloc").append(userTpl(userData));
   });
 }
