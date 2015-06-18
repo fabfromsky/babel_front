@@ -17,6 +17,9 @@
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/handlebars-v3.0.3.js"></script>
     <script type="text/javascript" src="scripts/feature/games/games.js"></script>
+    <script type="text/javascript" src="scripts/feature/user/user.js"></script>
+    <script type="text/javascript" src="scripts/feature/challenges/challenges.js"></script>
+    <script type="text/javascript" src="scripts/feature/messages/messages.js"></script>
   </head>
 
   <body class="gameboard">
@@ -29,7 +32,10 @@
         </span>
         <span class="user right">
             <span class="username">
-            <span>
+            </span>
+            <script id="username-tpl" type="x-handlebars-template">
+                {{ username }}
+            </script>
             <span class="disconnect_btn">
                 <a href="#" class="btn" role="button">
                     <i class="fa fa-sign-out"></i>
@@ -59,11 +65,62 @@
         </span>
         <span class="gameboard_shutter_left hide">
             <div class="shutter_bloc user_bloc">
+                <span class="user_bloc_img"><img src="imgs/claratatouille.jpg"/></span>
+                <span class="user_bloc_user">
+                </span>
             </div>
+            <script id="user-tpl" type="x-handlebars-template">
+                <div class="user_username">{{ username }}</div>
+                <div class="user_score">{{ userScore }} pts</div>
+            </script>
             <div class="shutter_bloc challenges_bloc">
             </div>
+            <script id="challenges-tpl" type="x-handlebars-template">
+                <ul class="challenges">
+                {{#each this}}
+                    <li class="challenge"><a href="#"><span class="playername">{{ player }}</span> vous a défié à <span class="gamename">{{ game.gameId }}</span> !</a></li>
+                {{/each}}
+                </ul>
+            </script>
             <div class="shutter_bloc messenger_bloc">
+                <div class="messages_container">
+                </div>
+                <div class="messenger_box">
+                    <div class="messenger_form">
+                        <div>
+                            <span class="contacts_selector">
+                                <input list="contacts" type="text" class="target_selector_input" placeholder="destinataire">
+                                <datalist id="contacts" class="target_selector" name="target">
+                                </datalist>
+                            </span>
+                            <span class="submit_btn"><a data-role="button" class="btn" href="#">Envoyer</a></span>
+                        </div>
+                        <div>
+                            <textarea name="message"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <script id="contacts-tpl" type="x-handlebars-template">
+                {{#each this}}
+                <option value={{contact}}>{{contact}}</option>
+                {{/each}}
+            </script>
             </div>
+            <script id="messages-tpl" type="x-handlebars-template">
+                <ul class="messages">
+                {{#each this}}
+                    <li class="message">
+                        <div class="message_header">
+                            <span class="message_sender">{{sender}} : </span>
+                            <span class="message_title">{{title}}</span>
+                        </div>
+                        <div class="message_content">
+                            <p>{{content}}</p>
+                        </div>
+                    </li>
+                {{/each}}
+                </ul>
+            </script>
         </span>
         <span class="gameboard_main">
             <nav class="navbar gameboard_nav">

@@ -12,8 +12,17 @@ body {
 header.gameboard_header {
   height: 40px;
   width: 100%;
-  background: #C1B39A;
+  background: #c7b299;
   line-height: 40px;
+  color: #fff;
+}
+
+header a {
+  color: #fff;
+}
+
+.content a {
+  color: #888;
 }
 
 .gameboard_babel_icon {
@@ -45,7 +54,7 @@ header.gameboard_header {
 .gameboard_side_bar {
   height: 100%;
   width: 40px;
-  background: #C1B39A;
+  background: #c7b299;
   color: #fff;
   display: inline-block;
 }
@@ -58,14 +67,119 @@ header.gameboard_header {
 
 .user_bloc {
   height: 100px;
+  box-sizing: border-box;
+}
+
+.user_bloc_img {
+  height: 80px;
+  width: 80px;
+  border-radius: 40px;
+  overflow: hidden;
+  display: inline-block;
+  margin: 10px;
+}
+
+.user_bloc_img img {
+  height: 80px;
+  margin-left: -25px;
+}
+
+.user_bloc_user {
+  width: 100px;
+  height: 80px;
+  margin-top: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.user_bloc_user .user_username {
+  padding: 10px;
+  font-size: 20px;
 }
 
 .challenges_bloc {
   height: 200px;
 }
 
+.challenges_bloc ul {
+  padding-top: 10px 
+}
+
+.challenges_bloc li {
+  list-style-type: none;
+  height: 30px;
+  background: #fff;
+  width: 280px;
+  margin: 0 10px 10px 10px;
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+.challenges_bloc li a {
+  line-height: 12px;
+  color: #777;
+}
+
+.challenges_bloc li a .playername,
+.challenges_bloc li a .gamename {
+  color: #c7b299;
+  font-weight: bold;
+}
+
 .messenger_bloc {
   height: calc( 100% - 300px);
+}
+
+.messages_container {
+  height: calc( 100% - 200px);
+}
+
+.messages_container ul {
+  padding-top: 10px;
+}
+
+.messages_container ul li {
+  background: #fff;
+  width: 280px;
+  margin: 0 10px 10px 10px;
+  padding: 5px;
+  list-style-type: none;
+}
+
+.messenger_box {
+  height: 200px;
+  width: 300px;
+  padding: 10px;
+  font-size: 0px; 
+}
+
+.messenger_box .messenger_form input {
+  padding-left: 5px;
+  height: 30px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  font-size: 12px;
+  width: 175px;
+}
+
+.messenger_box .messenger_form .submit_btn a {
+  height: 30px;
+  width: 100px;
+  background: #fff;
+  color: #333;
+  border-radius: 0px;
+  border: 1px solid #AAA;
+  font-size: 14px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.messenger_box .messenger_form textarea {
+  height: 150px;
+  width: 280px;
+  resize: none;
+  padding-left: 5px;
+  font-size: 12px;
 }
 
 .gameboard_side_bar .side_bar_icon {
@@ -83,7 +197,7 @@ header.gameboard_header {
 .gameboard_shutter_left {
   width: 300px;
   height: 100%;
-  background: #C1B39A;
+  background: #e9e0d6;
   display: inline-block;
   vertical-align: top;
   font-size: 12px;
