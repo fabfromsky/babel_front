@@ -49,6 +49,7 @@ header a {
   height: calc( 100% - 40px );
   width: 100%;
   font-size: 0;
+  position: relative;
 }
 
 .gameboard_side_bar {
@@ -57,6 +58,11 @@ header a {
   background: #c7b299;
   color: #fff;
   display: inline-block;
+  position: absolute;
+}
+
+.gameboard_side_bar .side_bar_bloc {
+  z-index: 10;
 }
 
 .gameboard_side_bar .side_bar_bloc,
@@ -85,7 +91,7 @@ header a {
 }
 
 .user_bloc_user {
-  width: 100px;
+  width: 185px;
   height: 80px;
   margin-top: 10px;
   display: inline-block;
@@ -95,6 +101,10 @@ header a {
 .user_bloc_user .user_username {
   padding: 10px;
   font-size: 20px;
+}
+
+.user_bloc_user .user_score {
+  padding-left: 10px;
 }
 
 .challenges_bloc {
@@ -201,6 +211,14 @@ header a {
   display: inline-block;
   vertical-align: top;
   font-size: 12px;
+  margin-left: 40px;
+  -webkit-transition: all 1s ease;
+  z-index: 1;
+}
+
+.gameboard_shutter_left.closed {
+  margin-left: -260px;
+  -webkit-transition: all 1s ease;
 }
 
 .gameboard_main {
@@ -209,34 +227,36 @@ header a {
   display: inline-block;
   font-size: 12px;
   vertical-align: top;
+  -webkit-transition: all 1s ease;
 }
 
 .gameboard_main.opened_shutter {
   width: calc( 100% - 340px );
+  -webkit-transition: all 1s ease;
 }
 
 .gameboard_main nav {
   position: absolute;
+  display:block;
   height:50px;
   right: 20px;
   font-size: 14px;
 }
 
 .gameboard_main .main_content {
-  height: calc( 100% - 70px );
   width: 100%;
-  margin-top: 70px;
+  margin-top: 48px;
   position: relative;
+  text-align: center;
 }
 
 .main_content .games_container {
-  position:  absolute;
-  height: 600px;
-  width: 800px;
-  margin-top: -300px;
-  top: 50%;
-  left: 50%;
-  margin-left: -400px;
+  position:  relative;
+  width: 80%;
+  text-align: left;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 12px;
 }
 
 .games_container li {
@@ -245,20 +265,58 @@ header a {
   width: 200px;
   margin: 5px;
   display: inline-block;
-  background-size: cover;
-  padding-top: 20px;
   border: 1px solid #333;
+  overflow: hidden;
+}
+
+.games_container li a {
+  display: block;
+  padding-top: 20px;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-image: url("imgs/default.png");
 }
 
 .games_container li .title {
   position: absolute;
   bottom: 20px;
   height: 30px;
-  background-color: #c7b299;;
+  background-color: rgba(199, 178, 153, 0.9);
   width: 150px;
   line-height: 30px;
   padding-left: 10px;
   color: #fff;
   font-weight: bold;
+  margin-left: -180px;
+  -webkit-transition: all 1s;
+  text-shadow: #111 0 0 2px;
 }
 
+.games_container li .description {
+  position: absolute;
+  height: 100px;
+  width: 180px;
+  margin-left: -400px;
+  background: rgba(199, 178, 153, 0.9);
+  padding: 5px;
+  color: #fff;
+  -webkit-transition: all 1s;
+  text-shadow: #111 0 0 2px;
+}
+
+.games_container li a:hover .title {
+  margin-left: 0px;
+  -webkit-transition: all 1s;
+}
+
+.games_container li a:hover .description {
+  margin-left: 0px;
+  -webkit-transition: all 1s;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}

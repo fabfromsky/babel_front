@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="css/font-awesome-4.3.0/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="js/jqueryUi/jquery-ui.css">
 
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
@@ -20,6 +21,7 @@
     <script type="text/javascript" src="scripts/feature/user/user.js"></script>
     <script type="text/javascript" src="scripts/feature/challenges/challenges.js"></script>
     <script type="text/javascript" src="scripts/feature/messages/messages.js"></script>
+    <script type="text/javascript" src="js/jqueryUi/jquery-ui.js"></script>
   </head>
 
   <body class="gameboard">
@@ -63,7 +65,7 @@
                 </div>
             </div>
         </span>
-        <span class="gameboard_shutter_left hide">
+        <span class="gameboard_shutter_left">
             <div class="shutter_bloc user_bloc">
                 
             </div>
@@ -71,7 +73,7 @@
                 <span class="user_bloc_img"><img src="imgs/{{ userImg }}" /></span>
                 <span class="user_bloc_user">
                     <div class="user_username">{{ username }}</div>
-                    <div class="user_score">{{ userScore }} pts</div>
+                    <div class="user_score">{{ userPoints }} pts</div>
                 </span> 
             </script>
             <div class="shutter_bloc challenges_bloc">
@@ -123,7 +125,7 @@
                 </ul>
             </script>
         </span>
-        <span class="gameboard_main">
+        <span class="gameboard_main opened_shutter">
             <nav class="navbar gameboard_nav">
                 <div class="container-fluid">
                     <ul class="nav navbar-nav gameboard_nav_links">
@@ -151,21 +153,15 @@
                 </div>
             </nav>
             <div class="main_content">
-                <div class="games_container">
+                <div class="games_container vcenter">
                     <ul class="games_list">
                     </ul>
                     <script id="games-tpl" type="x-handlebars-template">
                         {{#each this}}
-                        <li class="games" style="background-image: url('imgs/{{gameImg}}')">
-                            <a href={{gameUrl}}>
+                        <li class="game">
+                            <a class="game_link" href="{{gameUrl}}" style="background-image: url('imgs/{{gameImg}}')">
                                 <div class="title">{{gameName}}</div>
-                            </a>
-                        </li>
-                        {{/each}}
-                        {{#each this}}
-                        <li class="games">
-                            <a href={{gameUrl}}>
-                                <div class="title">{{gameName}}</div>
+                                <div class="description">{{gameDescription}}</div>
                             </a>
                         </li>
                         {{/each}}
