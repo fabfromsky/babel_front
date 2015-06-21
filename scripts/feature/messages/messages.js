@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  username = "claratatouille"
+  username = localStorage.getItem("username");
   getMessagesByUsername(username);
   getContactsByUsername(username);
 });

@@ -21,6 +21,12 @@ header a {
   color: #fff;
 }
 
+.gameboard .nav_btn a:hover,
+.gameboard .nav_btn a:focus {
+  background-color: #e9e0d6;
+  color: #333;
+}
+
 .content a {
   color: #888;
 }
@@ -87,7 +93,7 @@ header a {
 
 .user_bloc_img img {
   height: 80px;
-  margin-left: -25px;
+  margin-left: -5px;
 }
 
 .user_bloc_user {
@@ -248,6 +254,7 @@ header a {
   margin-top: 48px;
   position: relative;
   text-align: center;
+  overflow-y: scroll;
 }
 
 .main_content .games_container {
@@ -335,9 +342,13 @@ header a {
   text-align: center;
 }
 
+.login_form img {
+  height: 100px;
+}
+
 .login_form .babel_baseline {
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   font-size: 14px;
   font-weight: bold;
   color: #c7b299;
@@ -345,9 +356,10 @@ header a {
 
 .login_form input {
   margin-top: 20px;
-  width: 300px;
+  width: 295px;
   margin-right: auto;
   margin-left: auto;
+  border-color: #c7b299;
 }
 
 .login_form .btn {
@@ -356,4 +368,5 @@ header a {
   border-radius: 2px;
   width: 140px;
   height: 30px;
+  color: #c7b299;
 }

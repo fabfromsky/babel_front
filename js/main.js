@@ -7,4 +7,9 @@ $(function() {
     $(".gameboard_shutter_left").toggleClass("closed");
     $(".gameboard_main").toggleClass("opened_shutter");
   }); 
+  $(".login_button").on("click", function(){
+	var username = $(".login_input").val();
+	localStorage.setItem("username", username);
+	});
 });
+

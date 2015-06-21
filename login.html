@@ -17,23 +17,19 @@
     <script type="text/javascript" src="js/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/handlebars-v3.0.3.js"></script>
-    <script type="text/javascript" src="scripts/feature/games/games.js"></script>
-    <script type="text/javascript" src="scripts/feature/user/user.js"></script>
-    <script type="text/javascript" src="scripts/feature/challenges/challenges.js"></script>
-    <script type="text/javascript" src="scripts/feature/messages/messages.js"></script>
     <script type="text/javascript" src="js/jqueryUi/jquery-ui.js"></script>
   </head>
 
   <body class="gameboard login">
-    <div class="login_form">
+    <form class="login_form">
         <img src="imgs/logo.png"/>
         <div class="babel_baseline">Babel Game Board</div>
-        <input name="login" placeholder="username" class="form-control login_input" type="text"/>
-        <input name="password" placeholder="password" class="form-control login_input" type="password"/>
+        <input name="login" placeholder="username" class="form-control login_input" type="text" required/>
+        <input name="password" placeholder="password" class="form-control login_input" type="password" required/>
         <div class="btns_line">
-            <span class="login_btn"><a href="index.html" class="btn" data-role="button" name="login">Se connecter</a></span>
-            <span class="login_btn"><a class="btn" data-role="button" name="subscribe">S'inscrire</a></span>
+            <span class="login_btn login"><a href="index.html" class="btn login_button" name="login">Se connecter</a></span>
+            <span class="login_btn subscribe"><a class="btn" name="subscribe">S'inscrire</a></span>
         </div>
-    </div>
+    </form>
   </body>
   </html>

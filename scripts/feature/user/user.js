@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  var username = "claratatouille";
+  var username = localStorage.getItem("username");
   getUser(username);
 });
 
