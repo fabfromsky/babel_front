@@ -320,3 +320,40 @@ header a {
     vertical-align: middle;
     float: none;
 }
+
+/* login */
+
+.login_form {
+  position: absolute;
+  height: 400px;
+  width: 400px;
+  top: 50%;
+  left:50%;
+  margin-top: -200px;
+  margin-left: -200px;
+  padding: 10px;
+  text-align: center;
+}
+
+.login_form .babel_baseline {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #c7b299;
+}
+
+.login_form input {
+  margin-top: 20px;
+  width: 300px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.login_form .btn {
+  margin: 20px 5px 0px 5px;
+  border: #c7b299 1px solid;
+  border-radius: 2px;
+  width: 140px;
+  height: 30px;
+}
