@@ -527,13 +527,13 @@ function showGoMenu() {
 		},
 		"challenger" :  challenger,
 		"date" : date
-	}
+	};
 
 	var dataStr = JSON.stringify(data);
 
 	$('.challenge_btn').on('click', function() {
 		localStorage.setItem("challenge", dataStr);
-		persist(data);
+		persist(dataStr);
 	});
 }
 
@@ -649,9 +649,11 @@ menuLoop = function() {
 menuLoop();
 
 function persist(data) {
+	console.log(data);
   $.ajax({
     type:"POST",
     url: "http://localhost:8080/challenges/new",
+    contentType: "application/json",
     dataType: "json",
     data: data
   });
