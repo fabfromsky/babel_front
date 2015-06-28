@@ -517,7 +517,7 @@ function showGoMenu() {
 	var scoreText = document.getElementById("go_score");
 	scoreText.innerHTML = "Vous avez obtenu " + score + " points !";
 	var challenger = $('.contact_username').val();
-	var date = "toto";
+	var date = Date.now().toString();
 
 	var data = {
 		"player" : localStorage.getItem("username"),

@@ -87,6 +87,8 @@
             </script>
             <div class="shutter_bloc messenger_bloc">
                 <div class="messages_container">
+                    <ul class="messages">
+                    </ul>
                 </div>
                 <div class="messenger_box">
                     <div class="messenger_form">
@@ -96,10 +98,10 @@
                                 <datalist id="contacts" class="target_selector" name="target">
                                 </datalist>
                             </span>
-                            <span class="submit_btn"><a data-role="button" class="btn" href="#">Envoyer</a></span>
+                            <span class="submit_btn"><a data-role="button" class="btn message_btn" href="#">Envoyer</a></span>
                         </div>
                         <div>
-                            <textarea name="message"></textarea>
+                            <textarea name="message" class="message_area"></textarea>
                         </div>
                     </div>
                 </div>
@@ -109,21 +111,6 @@
                 {{/each}}
             </script>
             </div>
-            <script id="messages-tpl" type="x-handlebars-template">
-                <ul class="messages">
-                {{#each this}}
-                    <li class="message">
-                        <div class="message_header">
-                            <span class="message_sender">{{sender}} : </span>
-                            <span class="message_title">{{title}}</span>
-                        </div>
-                        <div class="message_content">
-                            <p>{{content}}</p>
-                        </div>
-                    </li>
-                {{/each}}
-                </ul>
-            </script>
         </span>
         <span class="gameboard_main opened_shutter">
             <nav class="navbar gameboard_nav">

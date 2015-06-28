@@ -2,6 +2,7 @@ $(document).ready(function(){
   username = localStorage.getItem("username");
   getMessagesByUsername(username);
   getContactsByUsername(username);
+  sendMessage(username);
 });
 
 function getMessagesByUsername(username){
@@ -16,9 +17,28 @@ function getMessagesByUsername(username){
     }
   }).then(function(dataStore){
     var messagesData = dataStore;
-    var messagesTplScript = $("#messages-tpl").html();
-    var messagesTpl = Handlebars.compile(messagesTplScript);
-    $(".messages_container").prepend(messagesTpl(messagesData));
+    var msgContainer = $('.messages');
+    var msg;
+    for(var i=0; i<dataStore.length; i++) {
+      if(dataStore[i].sender == username) {
+        msg = "<li class='message sent'>" +
+                "<div class='message_header'>" +
+                  "<span class='message_receiver'>à " + dataStore[i].receiver + " : </span>" +
+                "</div>" +
+                "<div class='message_content'>" + dataStore[i].content + "</div>" +
+              "</li>";
+        msgContainer.append(msg);
+
+      } else {
+        msg = "<li class='message received'>" +
+                "<div class='message_header'>" +
+                  "<span class='message_sender'>de " + dataStore[i].sender + " : </span>" +
+                "</div>" +
+                "<div class='message_content'>" + dataStore[i].content + "</div>" +
+              "</li>";
+        msgContainer.append(msg);
+      }
+    }
   });
 }
 
@@ -40,6 +60,36 @@ function getContactsByUsername(username){
   });
 }
 
+function sendMessage(username){
+  $('.message_btn').on("click", function() {
+    var receiver = $('.target_selector_input').val();
+    var msg = $('.message_area').val();
+    var data = JSON.stringify({
+          "sender" : username,
+          "receiver" : receiver,
+          "content" : msg
+        });
+    if(msg != "" && receiver != "") {
+      console.log(data);
+      $.ajax({
+        type:"POST",
+        url: "http://localhost:8080/messages/new",
+        contentType: "application/json",
+        dataType: "json",
+        data: data
+      });
+
+      $('.messages').empty();
+      $('.target_selector_input').val("");
+      $('.message_area').val("");
+      getMessagesByUsername(username);
+    } else if(receiver == "") {
+      alert("veuillez selectionner un destinataire !");
+    } else {
+      alert("le contenu du message est vide !");
+    }
+  })
+}
 
 
 
