@@ -22,21 +22,27 @@ function getMessagesByUsername(username){
     for(var i=0; i<dataStore.length; i++) {
       if(dataStore[i].sender == username) {
         msg = "<li class='message sent'>" +
-                "<div class='message_header'>" +
-                  "<span class='message_receiver'>à " + dataStore[i].receiver + " : </span>" +
+                "<div class='sender_img'><img src='imgs/claratatouille.jpg'/></div>" +
+                "<div class='message_container'>" +
+                  "<div class='message_header'>" +
+                    "<span class='message_receiver'>à <span class='user'>" + dataStore[i].receiver + "</span></span>" +
+                  "</div>" +
+                  "<div class='message_content'>" + dataStore[i].content + "</div>" +
                 "</div>" +
-                "<div class='message_content'>" + dataStore[i].content + "</div>" +
               "</li>";
-        msgContainer.append(msg);
+        msgContainer.prepend(msg);
 
       } else {
         msg = "<li class='message received'>" +
-                "<div class='message_header'>" +
-                  "<span class='message_sender'>de " + dataStore[i].sender + " : </span>" +
+                "<div class='message_container'>" +
+                  "<div class='message_header'>" +
+                    "<span class='message_sender'>de <span class='user'>" + dataStore[i].sender + "</span></span>" +
+                  "</div>" +
+                  "<div class='message_content'>" + dataStore[i].content + "</div>" +
                 "</div>" +
-                "<div class='message_content'>" + dataStore[i].content + "</div>" +
+                "<div class='sender_img'><img src='imgs/" + dataStore[i].sender + ".jpg'/></div>" +
               "</li>";
-        msgContainer.append(msg);
+        msgContainer.prepend(msg);
       }
     }
   });
@@ -79,10 +85,12 @@ function sendMessage(username){
         data: data
       });
 
-      $('.messages').empty();
       $('.target_selector_input').val("");
       $('.message_area').val("");
-      getMessagesByUsername(username);
+      setTimeout(function(){
+        $('.messages').empty();
+        getMessagesByUsername(username);
+      }, 200);
     } else if(receiver == "") {
       alert("veuillez selectionner un destinataire !");
     } else {

@@ -93,6 +93,9 @@
                 <div class="messenger_box">
                     <div class="messenger_form">
                         <div>
+                            <textarea name="message" class="message_area"></textarea>
+                        </div>
+                        <div>
                             <span class="contacts_selector">
                                 <input list="contacts" type="text" class="target_selector_input" placeholder="destinataire">
                                 <datalist id="contacts" class="target_selector" name="target">
@@ -100,11 +103,9 @@
                             </span>
                             <span class="submit_btn"><a data-role="button" class="btn message_btn" href="#">Envoyer</a></span>
                         </div>
-                        <div>
-                            <textarea name="message" class="message_area"></textarea>
-                        </div>
                     </div>
                 </div>
+                
                 <script id="contacts-tpl" type="x-handlebars-template">
                 {{#each this}}
                 <option value={{contact}}>{{contact}}</option>

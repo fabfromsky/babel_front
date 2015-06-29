@@ -7,24 +7,33 @@ body {
   height: 100%;
   width: 100%;
   position: absolute;
+  color: #888;
 }
 
 header.gameboard_header {
   height: 40px;
   width: 100%;
-  background: #c7b299;
+  background: #004D4D;
   line-height: 40px;
-  color: #fff;
+  color: #F4F0EB;
 }
 
 header a {
-  color: #fff;
+  color: #F4F0EB;
+}
+
+h3 {
+  font-size: 20px;
+  color:#333;
+  margin-top: 8px;
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
 
 .gameboard .nav_btn a:hover,
 .gameboard .nav_btn a:focus {
-  background-color: #e9e0d6;
-  color: #333;
+  background-color: teal;
+  color: #F4F0EB;
 }
 
 .content a {
@@ -43,12 +52,12 @@ header a {
 }
 
 .gameboard_baseline {
-  color: #fff;
+  color: #F4F0EB;
 }
 
 .gameboard_header .user.right {
   position: absolute;
-  right: 20px;
+  right: 0px;
 }
 
 .content {
@@ -61,8 +70,8 @@ header a {
 .gameboard_side_bar {
   height: 100%;
   width: 40px;
-  background: #c7b299;
-  color: #fff;
+  background: teal;
+  color: #F4F0EB;
   display: inline-block;
   position: absolute;
 }
@@ -73,8 +82,12 @@ header a {
 
 .gameboard_side_bar .side_bar_bloc,
 .shutter_bloc {
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #004D4D;
   box-sizing: border-box;
+}
+
+.shutter_bloc {
+  padding: 10px;
 }
 
 .user_bloc {
@@ -88,8 +101,7 @@ header a {
   border-radius: 40px;
   overflow: hidden;
   display: inline-block;
-  margin: 10px;
-}
+} 
 
 .user_bloc_img img {
   height: 80px;
@@ -99,7 +111,6 @@ header a {
 .user_bloc_user {
   width: 185px;
   height: 80px;
-  margin-top: 10px;
   display: inline-block;
   vertical-align: top;
 }
@@ -117,16 +128,12 @@ header a {
   height: 200px;
 }
 
-.challenges_bloc ul {
-  padding-top: 10px 
-}
-
 .challenges_bloc li {
   list-style-type: none;
   height: 30px;
-  background: #fff;
-  width: 280px;
-  margin: 0 10px 10px 10px;
+  background: #F4F0EB;
+  width: 320px;
+  margin: 0 0 10px 0;
   line-height: 30px;
   padding-left: 10px;
 }
@@ -138,7 +145,7 @@ header a {
 
 .challenges_bloc li a .playername,
 .challenges_bloc li a .gamename {
-  color: #c7b299;
+  color: teal;
   font-weight: bold;
 }
 
@@ -147,44 +154,76 @@ header a {
 }
 
 .messages_container {
-  height: calc( 100% - 200px);
+  height: calc( 100% - 240px);
   overflow-y: scroll;
+  border: 1px solid #A9A9A9;
+  margin-bottom: 10px;
 }
 
 .messages_container ul {
-  padding-top: 10px;
+  padding-top: 5px;
 }
 
 .messages_container ul li {
-  background: #fff;
-  width: 250px;
-  margin: 0 10px 10px 10px;
-  padding: 5px;
+  width: 290px;
+  margin: 0 5px 5px 5px;
   list-style-type: none;
 }
 
 .message.sent {
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .message.received {
-  margin-left: 25px;
+  margin-left: 5px;
+  text-align: right;
+}
+
+.message .user {
+  color: teal;
+  font-weight: bold;
+}
+
+.message.received .message_sender {
+  text-align: right;
+  width: 100%;
+  display: inline-block;
+}
+
+.message .sender_img{
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.message .sender_img img {
+  height: 50px;
+  margin-left: -5px;
+}
+
+.message .message_container {
+  display: inline-block;
+  width: 240px;
+  background: #F4F0EB;
+  padding: 5px;
+  min-height: 50px;
 }
 
 .messenger_box {
   height: 200px;
-  width: 300px;
-  padding: 10px;
+  width: 340px;
   font-size: 0px; 
 }
 
 .messenger_box .messenger_form input {
   padding-left: 5px;
   height: 30px;
-  margin-bottom: 5px;
+  margin-top: 5px;
   margin-right: 5px;
   font-size: 12px;
-  width: 175px;
+  width: 215px;
 }
 
 .messenger_box .messenger_form .submit_btn a {
@@ -197,11 +236,12 @@ header a {
   font-size: 14px;
   display: inline-block;
   vertical-align: top;
+  margin-top: 5px;
 }
 
 .messenger_box .messenger_form textarea {
-  height: 150px;
-  width: 280px;
+  height: 100px;
+  width: 320px;
   resize: none;
   padding-left: 5px;
   font-size: 12px;
@@ -213,26 +253,28 @@ header a {
   line-height: 40px;
   text-align: center;
   font-size: 24px;
+  background-color: #004D4D;
 }
 
 .gameboard_side_bar .side_bar_icon .shutter_btn {
-  color: #fff;
+  color: #F4F0EB;
 }
 
 .gameboard_shutter_left {
-  width: 300px;
+  width: 340px;
   height: 100%;
-  background: #e9e0d6;
+  background: white;
   display: inline-block;
   vertical-align: top;
   font-size: 12px;
   margin-left: 40px;
   -webkit-transition: all 1s ease;
   z-index: 1;
+  border-right: 1px solid teal;
 }
 
 .gameboard_shutter_left.closed {
-  margin-left: -260px;
+  margin-left: -300px;
   -webkit-transition: all 1s ease;
 }
 
@@ -243,10 +285,11 @@ header a {
   font-size: 12px;
   vertical-align: top;
   -webkit-transition: all 1s ease;
+  background-color: #F4F0EB;
 }
 
 .gameboard_main.opened_shutter {
-  width: calc( 100% - 340px );
+  width: calc( 100% - 380px );
   -webkit-transition: all 1s ease;
 }
 
@@ -254,8 +297,12 @@ header a {
   position: absolute;
   display:block;
   height:50px;
-  right: 20px;
+  right: 0px;
   font-size: 14px;
+}
+
+.gameboard_main nav .container-fluid {
+  padding-right: 0;
 }
 
 .gameboard_main .main_content {
@@ -263,7 +310,7 @@ header a {
   margin-top: 48px;
   position: relative;
   text-align: center;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .main_content .games_container {
@@ -281,7 +328,7 @@ header a {
   width: 200px;
   margin: 5px;
   display: inline-block;
-  border: 1px solid #333;
+  border: 1px solid teal;
   overflow: hidden;
 }
 
@@ -298,7 +345,7 @@ header a {
   position: absolute;
   bottom: 20px;
   height: 30px;
-  background-color: rgba(199, 178, 153, 0.9);
+  background-color: rgba(0, 77, 77, 0.6);
   width: 150px;
   line-height: 30px;
   padding-left: 10px;
@@ -314,7 +361,7 @@ header a {
   height: 100px;
   width: 180px;
   margin-left: -400px;
-  background: rgba(199, 178, 153, 0.9);
+  background: rgba(0, 77, 77, 0.6);
   padding: 5px;
   color: #fff;
   -webkit-transition: all 1s;
@@ -360,7 +407,7 @@ header a {
   margin-bottom: 40px;
   font-size: 14px;
   font-weight: bold;
-  color: #c7b299;
+  color: teal;
 }
 
 .login_form input {
@@ -368,14 +415,14 @@ header a {
   width: 295px;
   margin-right: auto;
   margin-left: auto;
-  border-color: #c7b299;
+  border-color: teal;
 }
 
 .login_form .btn {
   margin: 20px 5px 0px 5px;
-  border: #c7b299 1px solid;
+  border: teal 1px solid;
   border-radius: 2px;
   width: 140px;
   height: 30px;
-  color: #c7b299;
+  color: teal;
 }
