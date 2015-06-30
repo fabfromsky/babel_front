@@ -1,11 +1,20 @@
+//instaciation de la variable username
+username = localStorage.getItem("username");
+
+//au démarrage, on appelle le server
 $(document).ready(function(){
-  username = localStorage.getItem("username");
-  getMessagesByUsername(username);
-  getContactsByUsername(username);
-  sendMessage(username);
+  getMessagesByUsername();
+  getContactsByUsername();
+  sendMessage();
 });
 
-function getMessagesByUsername(username){
+//refresh messagerie 
+window.setInterval(getMessagesByUsername, 2000);
+var i = 0;
+
+function getMessagesByUsername(){
+  i++;
+  console.log(i);
   var dataStore = null;
   $.ajax({
     type:"GET",
@@ -19,10 +28,11 @@ function getMessagesByUsername(username){
     var messagesData = dataStore;
     var msgContainer = $('.messages');
     var msg;
+    msgContainer.empty();
     for(var i=0; i<dataStore.length; i++) {
       if(dataStore[i].sender == username) {
         msg = "<li class='message sent'>" +
-                "<div class='sender_img'><img src='imgs/claratatouille.jpg'/></div>" +
+                "<div class='sender_img'><img src='imgs/" + dataStore[i].sender + ".jpg'/></div>" +
                 "<div class='message_container'>" +
                   "<div class='message_header'>" +
                     "<span class='message_receiver'>à <span class='user'>" + dataStore[i].receiver + "</span></span>" +
@@ -48,7 +58,7 @@ function getMessagesByUsername(username){
   });
 }
 
-function getContactsByUsername(username){
+function getContactsByUsername(){
   var dataStore = null;
   $.ajax({
     type:"GET",
@@ -66,7 +76,7 @@ function getContactsByUsername(username){
   });
 }
 
-function sendMessage(username){
+function sendMessage(){
   $('.message_btn').on("click", function() {
     var receiver = $('.target_selector_input').val();
     var msg = $('.message_area').val();

@@ -443,14 +443,8 @@ function init() {
 		else if(player.y + player.height > height) {
 			showGoMenu();
 			hideScore();
+			hideCanvas();
 			player.isDead = "lol";
-
-			var tweet = document.getElementById("tweetBtn");
-			tweet.href='http://twitter.com/share?url=http://is.gd/2LVtL1&text=Je viens de faire ' +score+ ' points sur le jeu Doodle Jump en HTML5!&via=Forums_Mediabox&related=julienchauveau';
-		
-			var facebook = document.getElementById("fbBtn");
-			facebook.href='http://facebook.com/sharer.php?s=100&p[url]=http://julienchauveau.com/labs/doodlejump/&p[title]=Je viens de faire ' +score+ ' points sur le jeu Doodle Jump !&p[summary]=Pouvez-vous me battre dans cette version incroyable de Doodle Jump créé en HTML5 ?';
-
 		}
 	}
 
@@ -508,6 +502,7 @@ function hideMenu() {
 	menu.style.zIndex = -1;
 }
 
+
 //Shows the game over menu
 function showGoMenu() {
 	var menu = document.getElementById("gameOverMenu");
@@ -516,25 +511,9 @@ function showGoMenu() {
 
 	var scoreText = document.getElementById("go_score");
 	scoreText.innerHTML = "Vous avez obtenu " + score + " points !";
-	var challenger = $('.contact_username').val();
-	var date = Date.now().toString();
 
-	var data = {
-		"player" : localStorage.getItem("username"),
-		"playerScore" : score,
-		"game" : {
-			"gameId" : "jumpinsheep"
-		},
-		"challenger" :  challenger,
-		"date" : date
-	};
-
-	var dataStr = JSON.stringify(data);
-
-	$('.challenge_btn').on('click', function() {
-		localStorage.setItem("challenge", dataStr);
-		persist(dataStr);
-	});
+	processResult(score);
+	
 }
 
 //Hides the game over menu
@@ -554,6 +533,11 @@ function showScore() {
 function hideScore() {
 	var menu = document.getElementById("scoreBoard");
 	menu.style.zIndex = -1;
+}
+
+function hideCanvas() {
+	var container = document.querySelector('.container');
+	container.style.visibility = "hidden";
 }
 
 function playerJump() {
@@ -648,8 +632,46 @@ menuLoop = function() {
 
 menuLoop();
 
+function processResult(score) {
+	var challenge = localStorage.getItem("challenge");
+
+	if(challenge != "null") {
+		var data = JSON.parse(challenge);
+		data.challengerScore = score;
+		var dataStr = JSON.stringify(data);
+		persist(dataStr);
+
+	} else {
+		$("#gameOverMenu").append("<h3 id='challenge_response'>Souhaitez-vous défier un ami?</h3>" +
+															 "<div class='username_input'>" +
+															 	"<label for='username'>Selectionner un ami: </label>" +
+															 	"<input class='contact_username' name='username' placeholder='username'></input>" +
+															 "<div class='btns'>" +
+															 	"<a class='challenge_btn btn' href='#'>Défier</a>" +
+															 	"<a class='retour_btn btn' href='../../index.html'>Retourner sur mon Game Board</a>" +
+															 "</div>");	
+
+		$('.challenge_btn').on('click', function() {
+			var challenger = $('.contact_username').val();
+			var date = Date.now().toString();
+
+			var data2 = {
+				"player" : localStorage.getItem("username"),
+				"playerScore" : score,
+				"game" : {
+					"gameId" : "jumpinsheep"
+				},
+				"challenger" :  challenger,
+				"date" : date
+			};
+			var dataStr = JSON.stringify(data2);
+			persist(dataStr);
+		});
+	}
+
+}
+
 function persist(data) {
-	console.log(data);
   $.ajax({
     type:"POST",
     url: "http://localhost:8080/challenges/new",
@@ -657,4 +679,10 @@ function persist(data) {
     dataType: "json",
     data: data
   });
+  returnToBoard();
+ 	
+}
+
+function returnToBoard(){
+  	$('.container').append()
 }

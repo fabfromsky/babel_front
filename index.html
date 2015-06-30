@@ -11,6 +11,11 @@
     <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="js/jqueryUi/jquery-ui.css">
+    <link href="css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="css/print.css" media="print" rel="stylesheet" type="text/css" />
+    <!--[if IE]>
+        <link href="stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <![endif]-->
 
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
@@ -81,7 +86,7 @@
             <script id="challenges-tpl" type="x-handlebars-template">
                 <ul class="challenges">
                 {{#each this}}
-                    <li class="challenge"><a href="#"><span class="playername">{{ player }}</span> vous a défié à <span class="gamename">{{ game.gameId }}</span> !</a></li>
+                    <li class="challenge"><button class="challengeLink" onclick="answerChallenge({{challengeId}})" id="{{ challengeId }}"><span class="playername">{{ player }}</span> vous a défié à <span class="gamename">{{ game.gameId }}</span> !</button></li>
                 {{/each}}
                 </ul>
             </script>
@@ -156,7 +161,41 @@
                     </script>
                 </div>
             </div>
+            <div class="game_overlay">
+                <div class="container">
+                    <canvas id="canvas">
+                        Oooh… votre navigateur ne supporte pas HTML5!
+                    </canvas>
+
+                    <div id="mainMenu">
+                        <h1>Saute, mouton!</h1>
+                        
+                        <p class="info">
+                            utiliser
+                            <span class="key left">←</span>
+                            <span class="key right">→</span>
+                            pour vous déplacer <br/>
+                            et ESPACE pour (re)démarrer...
+                        </p>
+                        <a class="button" href="javascript:init()">Allons-y&nbsp;!</a>
+                    </div>  
+                    
+                    <!-- Preloading image ;) -->
+                    <img id="sprite" src="imgs/sprite.png"/>
+
+                    <div id="scoreBoard">
+                        <p id="score">0</p>
+                    </div>
+
+                </div>
+                <div id="gameOverMenu">
+                    <h1>game over!</h1>
+                    <h3 id="go_score"></h3>
+                </div>
+                <script src="js/jumpinsheep.js" type="text/javascript" charset="utf-8"></script>
+            </div>
         </span>
+
         <span class="gameboard_shutter_right">
         </span>
     </div>

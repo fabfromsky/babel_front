@@ -8,8 +8,9 @@ $(function() {
     $(".gameboard_main").toggleClass("opened_shutter");
   }); 
   $(".login_button").on("click", function(){
-	var username = $(".login_input").val();
-	localStorage.setItem("username", username);
+  	var username = $(".login_input").val();
+  	localStorage.setItem("username", username);
 	});
+  localStorage.setItem("challenge", null);
 });
 
