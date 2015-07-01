@@ -22,36 +22,11 @@ function getMessagesByUsername(){
       return dataStore;
     }
   }).then(function(dataStore){
+    $('.messages').empty();
     var messagesData = dataStore;
-    var msgContainer = $('.messages');
-    var msg;
-    msgContainer.empty();
-    for(var i=0; i<dataStore.length; i++) {
-      if(dataStore[i].sender == username) {
-        msg = "<li class='message sent'>" +
-                "<div class='sender_img'><img src='imgs/" + dataStore[i].sender + ".jpg'/></div>" +
-                "<div class='message_container'>" +
-                  "<div class='message_header'>" +
-                    "<span class='message_receiver'>à <span class='user'>" + dataStore[i].receiver + "</span></span>" +
-                  "</div>" +
-                  "<div class='message_content'>" + dataStore[i].content + "</div>" +
-                "</div>" +
-              "</li>";
-        msgContainer.prepend(msg);
-
-      } else {
-        msg = "<li class='message received'>" +
-                "<div class='message_container'>" +
-                  "<div class='message_header'>" +
-                    "<span class='message_sender'>de <span class='user'>" + dataStore[i].sender + "</span></span>" +
-                  "</div>" +
-                  "<div class='message_content'>" + dataStore[i].content + "</div>" +
-                "</div>" +
-                "<div class='sender_img'><img src='imgs/" + dataStore[i].sender + ".jpg'/></div>" +
-              "</li>";
-        msgContainer.prepend(msg);
-      }
-    }
+    var messageTplScript = $("#messages-tpl").html();
+    var messageTpl = Handlebars.compile(messageTplScript);
+    $('.messages').append(messageTpl(messagesData));
   });
 }
 
@@ -105,6 +80,14 @@ function sendMessage(){
     }
   })
 }
+
+Handlebars.registerHelper('isReceived', function(sender, options){
+    if(sender === username) {
+      return options.inverse(this);
+    } else {
+      return options.fn(this); 
+    }
+});
 
 
 

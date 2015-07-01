@@ -691,6 +691,6 @@ function persist(data) {
 }
 
 function returnToBoard(){
-	alert('ok');
-  	location.href="index.html";
+  getChallengesByUsername();
+  location.href="index.html";
 }

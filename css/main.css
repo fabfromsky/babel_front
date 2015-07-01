@@ -130,7 +130,7 @@ h3 {
 }
 
 .challenges_bloc .liste_challenges {
-  height: 320px;
+  height: 150px;
   overflow: hidden;
 }
 
@@ -150,10 +150,14 @@ h3 {
   line-height: 30px;
 }
 
-.challenges_bloc li button .playername,
-.challenges_bloc li button .gamename {
+.challenges_bloc li .playername,
+.challenges_bloc li .gamename {
   color: teal;
   font-weight: bold;
+}
+
+.challenges_bloc .challenge i {
+  margin-right: 10px;
 }
 
 .challengeLink {
@@ -183,6 +187,7 @@ h3 {
   width: 290px;
   margin: 0 5px 5px 5px;
   list-style-type: none;
+  font-size: 0px;
 }
 
 .message.sent {
@@ -224,6 +229,7 @@ h3 {
   background: #F4F0EB;
   padding: 5px;
   min-height: 50px;
+  font-size: 12px;
 }
 
 .messenger_box {

@@ -1,14 +1,14 @@
 $(document).ready(function(){
   username = localStorage.getItem("username");
   /*getChallengesByPlayer(username);*/
-  getChallengesByChallenger(username);
+  getChallengesByUsername();
 });
 
-function getChallengesByChallenger(username){
+function getChallengesByUsername(){
   var dataStore = null;
   $.ajax({
     type:"GET",
-    url: "http://localhost:8080/challenges?challenger=" + username,
+    url: "http://localhost:8080/challenges?username=" + username,
     dataType: "json",
     success: function(data) {
       dataStore = data;
@@ -47,6 +47,22 @@ function answerChallenge(id) {
     $("." + game).toggleClass("hide");
   });
 }
+
+Handlebars.registerHelper('isPlayer', function(player, options){
+  if(player === username) {
+    return options.inverse(this);
+  } else  {
+    return options.fn(this);
+  }
+});
+
+Handlebars.registerHelper('isAnswered', function(challengerScore, options){
+  if(challengerScore != null) {
+    return options.inverse(this);
+  } else {
+    return options.fn(this);
+  }
+});
 
 
 
