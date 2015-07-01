@@ -9,12 +9,9 @@ $(document).ready(function(){
 });
 
 //refresh messagerie 
-window.setInterval(getMessagesByUsername, 2000);
-var i = 0;
+window.setInterval(getMessagesByUsername, 5000);
 
 function getMessagesByUsername(){
-  i++;
-  console.log(i);
   var dataStore = null;
   $.ajax({
     type:"GET",

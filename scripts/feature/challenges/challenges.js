@@ -18,7 +18,7 @@ function getChallengesByChallenger(username){
     var challengesData = dataStore;
     var challengesTplScript = $("#challenges-tpl").html();
     var challengesTpl = Handlebars.compile(challengesTplScript);
-    $(".shutter_bloc.challenges_bloc").append(challengesTpl(challengesData));
+    $(".liste_challenges").append(challengesTpl(challengesData));
   });
 }
 
@@ -41,9 +41,10 @@ function answerChallenge(id) {
     url: "http://localhost:8080/challenges?challengeid=" + id,
     dataType: "json"
   }).then(function(data){
-    url = data.game.gameUrl;
+    var game = data.game.gameId;
     localStorage.setItem("challenge", JSON.stringify(data));
-    location.href = url;
+    $(".game_overlay").toggleClass("hide");
+    $("." + game).toggleClass("hide");
   });
 }
 

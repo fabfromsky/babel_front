@@ -150,55 +150,8 @@
             </nav>
             <div class="main_content">
                 <div class="games_container vcenter">
-                    <ul class="games_list">
+                    <ul class="trophies_list">
                     </ul>
-                    <script id="games-tpl" type="x-handlebars-template">
-                        {{#each this}}
-                        <li class="game">
-                            <a class="game_btn" href="#" id="{{gameId}}" style="background-image: url('imgs/{{gameImg}}')">
-                                <div class="title">{{gameName}}</div>
-                                <div class="description">{{gameDescription}}</div>
-                            </a>
-                        </li>
-                        {{/each}}
-                    </script>
-                </div>
-            </div>
-            <div class="game_overlay hide">
-                <div class="game jumpinsheep hide">
-                    <div class="container">
-                        <canvas id="canvas">
-                            Oooh… votre navigateur ne supporte pas HTML5!
-                        </canvas>
-
-                        <div id="mainMenu">
-                            <h1>Saute, mouton!</h1>
-                            
-                            <p class="info">
-                                utiliser
-                                <span class="key left">←</span>
-                                <span class="key right">→</span>
-                                pour vous déplacer <br/>
-                                et ESPACE pour (re)démarrer...
-                            </p>
-                            <a class="button" href="javascript:init()">Allons-y&nbsp;!</a>
-                        </div>  
-                        
-                        <!-- Preloading image ;) -->
-                        <img id="sprite" src="imgs/sprite.png"/>
-
-                        <div id="scoreBoard">
-                            <p id="score">0</p>
-                        </div>
-
-                    </div>
-                    <div id="gameOverMenu">
-                        <div class="gameOverContent">
-                            <h1>game over!</h1>
-                            <h3 id="go_score"></h3>
-                        </div>
-                    </div>
-                    <script src="js/jumpinsheep.js" type="text/javascript" charset="utf-8"></script>
                 </div>
             </div>
         </span>

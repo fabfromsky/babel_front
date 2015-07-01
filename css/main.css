@@ -126,6 +126,19 @@ h3 {
 
 .challenges_bloc {
   height: 200px;
+  position: relative;
+}
+
+.challenges_bloc .liste_challenges {
+  height: 320px;
+  overflow: hidden;
+}
+
+.challenges_bloc .more_challenges {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 10px;
 }
 
 .challenges_bloc li {
@@ -135,18 +148,20 @@ h3 {
   width: 320px;
   margin: 0 0 10px 0;
   line-height: 30px;
-  padding-left: 10px;
 }
 
-.challenges_bloc li a {
-  line-height: 12px;
-  color: #777;
-}
-
-.challenges_bloc li a .playername,
-.challenges_bloc li a .gamename {
+.challenges_bloc li button .playername,
+.challenges_bloc li button .gamename {
   color: teal;
   font-weight: bold;
+}
+
+.challengeLink {
+  background: #F4F0EB;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding-left: 10px;
 }
 
 .messenger_bloc {
@@ -444,3 +459,15 @@ h3 {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
 }
+
+.game_overlay a.button {
+  color: #333;
+  font-size: bold;
+}
+
+.game_overlay .game {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+

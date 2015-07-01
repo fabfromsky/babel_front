@@ -639,17 +639,25 @@ function processResult(score) {
 		var data = JSON.parse(challenge);
 		data.challengerScore = score;
 		var dataStr = JSON.stringify(data);
-		persist(dataStr);
+		$(".gameOverContent").append("<div class='scores'>"+
+																"<span class='user_result'>" + data.challenger + ": " + score + " </span><span>/ " + data.player + ": " + data.playerScore + "</span>" +
+															"</div>" +
+															"<a class='retour_btn btn' href='#'>Retourner sur mon Game Board</a>"
+															);
+		$(".retour_btn").on("click", function() {
+			persist(dataStr);
+		});
 
 	} else {
-		$("#gameOverMenu").append("<h3 id='challenge_response'>Souhaitez-vous défier un ami?</h3>" +
+		$(".gameOverContent").append("<h3 id='challenge_response'>Souhaitez-vous défier un ami?</h3>" +
 															 "<div class='username_input'>" +
-															 	"<label for='username'>Selectionner un ami: </label>" +
+															 	"<label for='username'>Selectionner un ami:  </label>" +
 															 	"<input class='contact_username' name='username' placeholder='username'></input>" +
-															 "<div class='btns'>" +
+															 "</div><div class='btns'>" +
 															 	"<a class='challenge_btn btn' href='#'>Défier</a>" +
-															 	"<a class='retour_btn btn' href='../../index.html'>Retourner sur mon Game Board</a>" +
-															 "</div>");	
+															 	"<a class='retour_btn btn' href='index.html'>Retourner sur mon Game Board</a>" +
+															 "</div>"
+															);	
 
 		$('.challenge_btn').on('click', function() {
 			var challenger = $('.contact_username').val();
@@ -678,11 +686,11 @@ function persist(data) {
     contentType: "application/json",
     dataType: "json",
     data: data
-  });
-  returnToBoard();
+  }).then(returnToBoard());
  	
 }
 
 function returnToBoard(){
-  	$('.container').append()
+	alert('ok');
+  	location.href="index.html";
 }

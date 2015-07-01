@@ -1,39 +1,169 @@
 /* Welcome to Compass. In this file you should write your main styles. (or centralize your imports) Import this file using the following HTML or equivalent: <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-@font-face { font-family: 'Gloria Hallelujah'; font-style: normal; font-weight: 400; src: local("Gloria Hallelujah"), local("GloriaHallelujah"), url(../GloriaHallelujah.woff) format("woff"); }
+@font-face { 
+  font-family: 'Gloria Hallelujah'; 
+  font-style: normal; 
+  font-weight: 400; 
+  src: local("Gloria Hallelujah"), local("GloriaHallelujah"), url(../GloriaHallelujah.woff) format("woff"); 
+}
 
 * { box-sizing: border-box; }
 
 body { margin: 0; padding: 0; }
 
-.container { height: 552px; width: 422px; position: relative; margin: 20px auto; overflow: hidden; }
+.jumpinsheep .container { 
+  padding-left: 0; 
+  padding-right: 0; 
+  height: 552px; 
+  width: 422px; 
+  position: relative; 
+  margin: auto; 
+  top:50%; 
+  margin-top: -276px; 
+  overflow: hidden; 
+}
 
-canvas { height: 552px; width: 422px; display: block; background: url(../imgs/canvas.png) top left; }
+canvas { 
+  height: 552px; 
+  width: 422px; 
+  display: block; 
+  background: url(../imgs/canvas.png) top left; 
+}
 
-#scoreBoard { width: 420px; height: 50px; background: rgba(182, 200, 220, 0.7); position: absolute; top: -3px; left: 0; z-index: -1; border-image: url(../imgs/board.png) 100 5 round; }
-#scoreBoard p { font-size: 20px; padding: 0; line-height: 47px; margin: 0px 0 0 5px; }
+#scoreBoard { 
+  width: 420px; 
+  height: 50px; 
+  background: rgba(182, 200, 220, 0.7); 
+  position: absolute; 
+  top: -3px; 
+  left: 0; 
+  z-index: -1; 
+  border-image: url(../imgs/board.png) 100 5 round; 
+}
 
-#mainMenu { height: 100%; width: 100%; text-align: center; position: absolute; top: 0; left: 0; z-index: 2; font-family: 'Gloria Hallelujah', cursive; }
+#scoreBoard p { 
+  font-size: 20px; 
+  padding: 0; 
+  line-height: 47px; 
+  margin: 0px 0 0 5px; 
+}
 
-#gameOverMenu { height: 400px; width: 600px; text-align: center; position: absolute; top: 0; left: 0; z-index: 2; background-color: #F4F0EB; margin-left: -300px; left: 50%; margin-top: -200px; top: 50%; }
+#mainMenu { 
+  height: 100%; 
+  width: 100%; 
+  text-align: center; 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  z-index: 2; 
+  font-family: 'Gloria Hallelujah', cursive; 
+}
+
+#gameOverMenu { 
+  height: 400px; 
+  width: 600px; 
+  text-align: center; 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  z-index: 2; 
+  background-color: #F4F0EB; 
+  margin-left: -300px; 
+  left: 50%; 
+  margin-top: -200px; 
+  top: 50%; 
+  line-height: 400px;
+}
 
 #gameOverMenu { visibility: hidden; }
 
+.gameOverContent {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 20px
+}
+
 h1, h2, h3 { font-weight: normal; }
 
-h1 { font-size: 60px; color: #5a5816; -webkit-transform: rotate(-10deg); -moz-transform: rotate(-10deg); -ms-transform: rotate(-10deg); -o-transform: rotate(-10deg); transform: rotate(-10deg); margin: 0px; }
+h1 { 
+  font-size: 40px; 
+  color: teal; 
+  margin-top: 0; 
+}
 
-h3 { text-align: right; margin: -10px 20px 0 0; color: #5e96be; }
-h3 a { color: #5a5816; }
+.button { 
+  width: 105px;
+  height: 31px; 
+  background: url(../imgs/sprite.png) 0 0 no-repeat; 
+  display: block; 
+  color: #000; 
+  font-size: 12px; 
+  line-height: 31px; 
+  text-decoration: none; 
+  position: absolute; 
+  left: 50%; 
+  bottom: 50px; 
+  margin-left: -53px; 
+}
 
-.button { width: 105px; height: 31px; background: url(../imgs/sprite.png) 0 0 no-repeat; display: block; color: #000; font-size: 12px; line-height: 31px; text-decoration: none; position: absolute; left: 50%; bottom: 50px; margin-left: -53px; }
-.button.tweet { bottom: 100px; background-position: 0 -90px; }
-.button.fb { bottom: 150px; background-position: 0 -60px; }
+.info { 
+  position: absolute; 
+  line-height: 1.4em; 
+  text-align: center; 
+  width: 422px; 
+  right: 0; 
+  bottom: 3px; 
+  margin: 0; 
+  color: teal; 
+}
 
-.info { position: absolute; line-height: 1.4em; text-align: center; width: 422px; right: 0; bottom: 3px; margin: 0; color: green; }
-.info .key { width: 16px; height: 16px; background: url(../imgs/sprite.png) no-repeat; text-indent: -9999px; display: inline-block; }
+.info .key { 
+  width: 16px; 
+  height: 16px; 
+  background: url(../imgs/sprite.png) no-repeat; 
+  text-indent: -9999px; 
+  display: inline-block; 
+}
+
 .info .key.left { background-position: -92px -621px; }
 .info .key.right { background-position: -92px -641px; }
 
-.challenge_btn {
+.username_input {
+  margin-top: 80px;
+  margin-bottom: 20px;
+}
+
+.username_input .contact_username {
+  height: 25px;
+  width: 140px;
+  margin-left: 10px;
+  padding-left: 10px;
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+}
+.jumpinsheep .btn {
+  border: 1px solid teal;
+  display: block;
   padding: 10px;
+  width: 250px;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.jumpinsheep a.challenge_btn {
+  background: teal;
+  color: white;
+}
+
+.jumpinsheep a.retour_btn {
+  background: white;
+  color: teal;
+}
+
+.scores {
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+.user_result {
+  color: teal;
 }
