@@ -3,7 +3,7 @@ $(document).ready(function(){
   getUser(username);
 });
 
-function getUser(username){
+function getUser(){
   var dataStore = null;
   $.ajax({
     type:"GET",

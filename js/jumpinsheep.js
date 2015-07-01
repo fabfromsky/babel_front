@@ -636,6 +636,9 @@ function processResult(score) {
 	var challenge = localStorage.getItem("challenge");
 
 	if(challenge != "null") {
+		var user = getUser();
+		user.score += score;
+		saveUser(user);
 		var data = JSON.parse(challenge);
 		data.challengerScore = score;
 		var dataStr = JSON.stringify(data);
@@ -677,6 +680,17 @@ function processResult(score) {
 		});
 	}
 
+}
+
+function saveUser(user) {
+	$.ajax({
+    type:"POST",
+    url: "http://localhost:8080/user/new",
+    contentType: "application/json",
+    dataType: "json",
+    data: data
+  });
+ 	
 }
 
 function persist(data) {

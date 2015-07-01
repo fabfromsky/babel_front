@@ -22,10 +22,10 @@
     <script type="text/javascript" src="js/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/handlebars-v3.0.3.js"></script>
-    <script type="text/javascript" src="scripts/feature/games/games.js"></script>
     <script type="text/javascript" src="scripts/feature/user/user.js"></script>
     <script type="text/javascript" src="scripts/feature/challenges/challenges.js"></script>
     <script type="text/javascript" src="scripts/feature/messages/messages.js"></script>
+    <script type="text/javascript" src="scripts/feature/trophies/trophies.js"></script>
     <script type="text/javascript" src="js/jqueryUi/jquery-ui.js"></script>
   </head>
 
@@ -88,7 +88,13 @@
             <script id="challenges-tpl" type="x-handlebars-template">
                 <ul class="challenges">
                 {{#each this}}
-                    <li class="challenge"><button class="challengeLink" onclick="answerChallenge({{challengeId}})" id="{{ challengeId }}"><span class="playername">{{ player }}</span> vous a défié à <span class="gamename">{{ game.gameId }}</span> !</button></li>
+                {{#isAnswered challengerScore}}
+                    {{#isPlayer player}}
+                        <li class="challenge"><button class="challengeLink" onclick="answerChallenge({{challengeId}})" id="{{ challengeId }}"><i class="fa fa-arrow-right"></i><span class="playername">{{ player }}</span> vous a défié à <span class="gamename">{{ game.gameId }}</span> !</button></li>
+                    {{else}}
+                    <li class="challenge"><div class="challengeLink" id="{{ challengeId }}"><i class="fa fa-arrow-left"></i>vous avez défié <span class="playername">{{ challenger }}</span> à <span class="gamename">{{ game.gameId }}</span> !</div></li>
+                    {{/isPlayer}}
+                {{/isAnswered}}
                 {{/each}}
                 </ul>
             </script>
@@ -97,6 +103,39 @@
                     <ul class="messages">
                     </ul>
                 </div>
+                <script id="messages-tpl" type="x-handlebars-template">
+                {{#each this}}
+                    {{#isReceived sender}}
+                    <li class="message received">
+                        <div class="message_container">
+                            <div class="message_header">
+                                <span class="message_sender">de 
+                                    <span class="user">{{sender}}</span>
+                                </span>
+                            </div>
+                            <div class="message_content">{{content}}</div>
+                        </div>
+                        <div class="sender_img">
+                            <img src="imgs/{{sender}}.jpg">
+                        </div>
+                    </li>
+                    {{else}}
+                    <li class="message sent">
+                        <div class="sender_img">
+                            <img src="imgs/{{sender}}.jpg">
+                        </div>
+                        <div class="message_container">
+                            <div class="message_header">
+                                <span class="message_sender">à 
+                                    <span class="user">{{receiver}}</span>
+                                </span>
+                            </div>
+                            <div class="message_content">{{content}}</div>
+                        </div>
+                    </li>
+                    {{/isReceived}}
+                {{/each}}
+                </script>
                 <div class="messenger_box">
                     <div class="messenger_form">
                         <div>
@@ -152,6 +191,16 @@
                 <div class="games_container vcenter">
                     <ul class="trophies_list">
                     </ul>
+                    <script id="trophies-tpl" type="x-handlebars-template">
+                        {{#each this}}
+                        <li class="trophy">
+                            <a class="game_btn" href="#" id="{{trophyId}}" style="background-image: url('imgs/{{trophyImg}}')">
+                                <div class="title">{{trophyName}}</div>
+                                <div class="description">{{description}}</div>
+                            </a>
+                        </li>
+                        {{/each}}
+                    </script>
                 </div>
             </div>
         </span>
