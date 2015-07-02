@@ -23,6 +23,7 @@
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/handlebars-v3.0.3.js"></script>
     <script type="text/javascript" src="scripts/feature/user/user.js"></script>
+    <script type="text/javascript" src="scripts/feature/user/user-trophies.js"></script>
     <script type="text/javascript" src="scripts/feature/challenges/challenges.js"></script>
     <script type="text/javascript" src="scripts/feature/messages/messages.js"></script>
     <script type="text/javascript" src="scripts/feature/trophies/trophies.js"></script>
@@ -164,7 +165,7 @@
                 <div class="container-fluid">
                     <ul class="nav navbar-nav gameboard_nav_links">
                         <li class="active nav_btn">
-                            <a href="#"><i class="fa fa-th-large"></i> Game Board</a>
+                            <a href="index.html"><i class="fa fa-th-large"></i> Game Board</a>
                         </li>
                         <li class="nav_btn">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-bar-chart"></i> Statistiques <span class="caret"></span></a>
@@ -188,18 +189,82 @@
                 </div>
             </nav>
             <div class="main_content">
-                <div class="games_container vcenter">
-                    <ul class="trophies_list">
-                    </ul>
-                    <script id="trophies-tpl" type="x-handlebars-template">
-                        {{#each this}}
-                        <li class="trophy">
-                            <a class="game_btn" href="#" id="{{trophyId}}" style="background-image: url('imgs/{{trophyImg}}')">
-                                <div class="title">{{trophyName}}</div>
+                <div class="trophies_container vcenter">
+                    <div class="trophies_list my_trophies">
+                        <div class="trophy_title">
+                            Mes trophées
+                        </div>
+                    </div>
+                    <div class="trophies_list trophies">
+                        <div class="trophy_title">
+                            Tous les trophées
+                        </div>
+                    </div>
+                    <script id="mytrophies-tpl" type="x-handlebars-template">
+                        <ul class="my_trophies_list">
+                            {{#each this}}
+                            <li class="trophy">
+                                <img src="imgs/trophy-icon-unlocked.png"/>
+                                <div class="trophy_name">{{trophyName}}</div>
                                 <div class="description">{{description}}</div>
-                            </a>
-                        </li>
-                        {{/each}}
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </script>
+                    <script id="trophies-tpl" type="x-handlebars-template">
+                        <ul class="all_trophies">
+                            {{#each this}}
+                            <li class="trophy">
+                                <img src="imgs/trophy-icon.png"/>
+                                <div class="trophy_name">{{trophyName}}</div>
+                                <div class="description">{{description}}</div>
+                            </li>
+                            {{/each}}
+                        </ul>
+                        /*<ul class="category_points">
+                            {{#each this}}
+                            {{#isCategory trophyCategory 'points'}}
+                            <li class="trophy">
+                                <img src="imgs/trophy-icon.png"/>
+                                <div class="trophy_name">{{trophyName}}</div>
+                                <div class="description">{{description}}</div>
+                            </li>
+                            {{/isCategory}}
+                            {{/each}}
+                        </ul>
+                        <ul class="category_games">
+                            {{#each this}}
+                            {{#isCategory trophyCategory 'games'}}
+                            <li class="trophy">
+                                <img src="imgs/trophy-icon.png"/>
+                                <div class="trophy_name">{{trophyName}}</div>
+                                <div class="description">{{description}}</div>
+                            </li>
+                            {{/isCategory}}
+                            {{/each}}
+                        </ul>
+                        <ul class="category_challenges">
+                            {{#each this}}
+                            {{#isCategory trophyCategory 'challenges'}}
+                            <li class="trophy">
+                                <img src="imgs/trophy-icon.png"/>
+                                <div class="trophy_name">{{trophyName}}</div>
+                                <div class="description">{{description}}</div>
+                            </li>
+                            {{/isCategory}}
+                            {{/each}}
+                        </ul>
+                        <ul class="category_specials">
+                            {{#each this}}
+                            {{#isCategory trophyCategory 'special'}}
+                            <li class="trophy">
+                                <img src="imgs/trophy-icon.png"/>
+                                <div class="trophy_name">{{trophyName}}</div>
+                                <div class="description">{{description}}</div>
+                            </li>
+                            {{/isCategory}}
+                            {{/each}}
+                        </ul>*/
                     </script>
                 </div>
             </div>

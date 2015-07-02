@@ -18,6 +18,12 @@ function getTrophies(){
     var trophiesData = dataStore;
     var trophiesTplScript = $("#trophies-tpl").html();
     var trophisTpl = Handlebars.compile(trophiesTplScript);
-    $(".trophies_list").append(trophisTpl(trophiesData));
+    $(".trophies").append(trophisTpl(trophiesData));
   });
 }
+
+Handlebars.registerHelper('isCategory', function(category, value, options) {
+  if(category === value) {
+    return options.fn(this);
+  }
+});

@@ -633,12 +633,18 @@ menuLoop = function() {
 menuLoop();
 
 function processResult(score) {
+	debugger;
 	var challenge = localStorage.getItem("challenge");
+	var username = localStorage.getItem("username");
+	var game = {
+		"gameId" : "jumpinsheep",
+		"username": username,
+		"score": score
+	}
+
+	saveGame(JSON.stringify(game));
 
 	if(challenge != "null") {
-		var user = getUser();
-		user.score += score;
-		saveUser(user);
 		var data = JSON.parse(challenge);
 		data.challengerScore = score;
 		var dataStr = JSON.stringify(data);
@@ -679,16 +685,15 @@ function processResult(score) {
 			persist(dataStr);
 		});
 	}
-
 }
 
-function saveUser(user) {
+function saveGame(game) {
 	$.ajax({
     type:"POST",
-    url: "http://localhost:8080/user/new",
+    url: "http://localhost:8080/user/games/new",
     contentType: "application/json",
     dataType: "json",
-    data: data
+    data: game
   });
  	
 }

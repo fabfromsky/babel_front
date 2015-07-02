@@ -1,6 +1,6 @@
 $(document).ready(function(){
   var username = localStorage.getItem("username");
-  getUser(username);
+  getUser();
 });
 
 function getUser(){
@@ -22,5 +22,7 @@ function getUser(){
     var userTplScript = $("#user-tpl").html();
     var userTpl = Handlebars.compile(userTplScript);
     $(".shutter_bloc.user_bloc").append(userTpl(userData));
+
+    localStorage.setItem("user", JSON.stringify(userData));
   });
 }
