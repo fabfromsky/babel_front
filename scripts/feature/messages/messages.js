@@ -9,8 +9,8 @@ $(document).ready(function(){
 });
 
 //refresh messagerie 
-window.setInterval(getMessagesByUsername, 5000);
-
+/*window.setInterval(getMessagesByUsername, 5000);
+*/
 function getMessagesByUsername(){
   var dataStore = null;
   $.ajax({

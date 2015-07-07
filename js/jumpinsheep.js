@@ -512,7 +512,7 @@ function showGoMenu() {
 	var scoreText = document.getElementById("go_score");
 	scoreText.innerHTML = "Vous avez obtenu " + score + " points !";
 
-	processResult(score);
+	saveGame(score);
 	
 }
 
@@ -633,16 +633,7 @@ menuLoop = function() {
 menuLoop();
 
 function processResult(score) {
-	debugger;
 	var challenge = localStorage.getItem("challenge");
-	var username = localStorage.getItem("username");
-	var game = {
-		"gameId" : "jumpinsheep",
-		"username": username,
-		"score": score
-	}
-
-	saveGame(JSON.stringify(game));
 
 	if(challenge != "null") {
 		var data = JSON.parse(challenge);
@@ -687,14 +678,24 @@ function processResult(score) {
 	}
 }
 
-function saveGame(game) {
+function saveGame(score) {
+
+	var username = localStorage.getItem("username");
+	var game = {
+		"game" : "jumpinsheep",
+		"user": username,
+		"score": score
+	}
+
+	var gameStr = JSON.stringify(game);
+
 	$.ajax({
     type:"POST",
     url: "http://localhost:8080/user/games/new",
     contentType: "application/json",
     dataType: "json",
-    data: game
-  });
+    data: gameStr
+  }).then(processResult(score));
  	
 }
 

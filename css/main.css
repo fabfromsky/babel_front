@@ -415,49 +415,6 @@ h3 {
     float: none;
 }
 
-/* login */
-
-.login_form {
-  position: absolute;
-  height: 400px;
-  width: 400px;
-  top: 50%;
-  left:50%;
-  margin-top: -200px;
-  margin-left: -200px;
-  padding: 10px;
-  text-align: center;
-}
-
-.login_form img {
-  height: 100px;
-}
-
-.login_form .babel_baseline {
-  margin-top: 20px;
-  margin-bottom: 40px;
-  font-size: 14px;
-  font-weight: bold;
-  color: teal;
-}
-
-.login_form input {
-  margin-top: 20px;
-  width: 295px;
-  margin-right: auto;
-  margin-left: auto;
-  border-color: teal;
-}
-
-.login_form .btn {
-  margin: 20px 5px 0px 5px;
-  border: teal 1px solid;
-  border-radius: 2px;
-  width: 140px;
-  height: 30px;
-  color: teal;
-}
-
 .game_overlay {
   position: absolute;
   left: 0;
@@ -482,12 +439,13 @@ h3 {
   position:  relative;
   text-align: left;
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: top;
   line-height: 12px;
-  height: 100%;
-  padding: 40px;
+  padding: 0 40px 40px 40px;
 }
 
+
+/* trophies */
 .trophies_container ul {
   margin-bottom: 0px;
 }
@@ -521,4 +479,82 @@ h3 {
   padding: 20px 0;
   border-bottom: 1px solid #888;
   margin-bottom: 30px;
+}
+
+
+/* login & subscribe*/
+
+.login img, 
+.subscribe img {
+  height: 100px;
+}
+
+.login .babel_baseline,
+.subscribe .babel_baseline {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-size: 14px;
+  font-weight: bold;
+  color: teal;
+}
+
+.login_form {
+  position: absolute;
+  height: 400px;
+  width: 400px;
+  top: 50%;
+  left:50%;
+  margin-top: -200px;
+  margin-left: -200px;
+  padding: 10px;
+  text-align: center;
+
+}
+
+.subscribe_form {
+  position: absolute;
+  height: 600px;
+  width: 400px;
+  top: 50%;
+  left:50%;
+  margin-top: -300px;
+  margin-left: -200px;
+  padding: 10px;
+  text-align: center;
+}
+
+.login_form input,
+.subscribe_form input {
+  margin-top: 20px;
+  width: 295px;
+  margin-right: auto;
+  margin-left: auto;
+  border-color: teal;
+}
+
+.login_form .btn,
+.subscribe_form .btn {
+  margin: 20px 5px 0px 5px;
+  border: teal 1px solid;
+  border-radius: 2px;
+  width: 140px;
+  height: 30px;
+  color: teal;
+}
+
+.subscribe .sex {
+
+  text-align: left;
+  margin-left: 45px;
+}
+
+.subscribe .sex span {
+  display: inline-block;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+
+.subscribe .sex span input {
+  width: auto;
+  margin-right: 10px;
 }
