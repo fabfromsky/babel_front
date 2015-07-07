@@ -18,9 +18,10 @@
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/handlebars-v3.0.3.js"></script>
     <script type="text/javascript" src="js/jqueryUi/jquery-ui.js"></script>
+    <script type="text/javascript" src="scripts/feature/user/subscribe.js"></script>
   </head>
 
-  <body class="gameboard login">
+  <body class="gameboard subscribe">
   <header class="gameboard_header">
         <span class="gameboard_babel_icon">
             <img src="imgs/logo_white.png"/>
@@ -34,20 +35,21 @@
             <script id="username-tpl" type="x-handlebars-template">
                 {{ username }}
             </script>
-            <span class="disconnect_btn">
-                <a href="login.html" class="btn" role="button">
-                    <i class="fa fa-sign-out"></i>
-                </a>
-            </span>
         </span>
     </header>
-    <form class="login_form">
-        <h2>connexion</h2>
-        <input name="login" placeholder="username" class="form-control login_input" type="text" required/>
-        <input name="password" placeholder="password" class="form-control login_input" type="password" required/>
+    <form class="subscribe_form">
+        <h2>inscription</h2>
+        <div class="sex">
+            <span><input type="checkbox" name="sex" value="m">Masculin</span>
+            <span><input type="checkbox" name="sex" value="f">Féminin</span>
+        </div>
+        <input name="login" placeholder="username" class="form-control login_input login" type="text" required/>
+        <input name="password" placeholder="password" class="form-control login_input password" type="password" required/>
+        <input name="firstname" placeholder="prénom" class="form-control login_input firstname" type="text" required/>
+        <input name="lastname" placeholder="nom" class="form-control login_input lastname" type="text" required/>
+        <input name="mail" placeholder="mail" class="form-control login_input mail" type="mail" required/>
         <div class="btns_line">
-            <span class="login_btn login"><a href="index.html" class="btn login_button" name="login">Se connecter</a></span>
-            <span class="login_btn subscribe"><a href="subscribe.html" class="btn" name="subscribe">S'inscrire</a></span>
+            <span class="login_btn validate"><a class="btn" name="validate">Valider</a></span>
         </div>
     </form>
   </body>
