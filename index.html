@@ -81,7 +81,7 @@
                 
             </div>
             <script id="user-tpl" type="x-handlebars-template">
-                <span class="user_bloc_img"><img src="imgs/{{#if userImg}}{{userImg}}{{else}}{{sex}}.jpg{{/if}}"/></span>
+                <span class="user_bloc_img"><img src="imgs/{{userImg}}"/></span>
                 <span class="user_bloc_user">
                     <div class="user_username">{{ username }}</div>
                     <div class="user_score">{{ userPoints }} pts</div>
@@ -122,13 +122,13 @@
                             <div class="message_content">{{content}}</div>
                         </div>
                         <div class="sender_img">
-                            <img src="imgs/{{#if sender.userImg}}{{sender.userImg}}{{else}}{{sender.sex}}.jpg{{/if}}"/>
+                            <img src="imgs/{{sender}}.jpg"/>
                         </div>
                     </li>
                     {{else}}
                     <li class="message sent">
                         <div class="sender_img">
-                            <img src="imgs/{{#if receiver.userImg}}{{receiver.userImg}}{{else}}{{receiver.sex}}.jpg{{/if}}"/>
+                            <img src="imgs/{{sender}}.jpg"/>
                         </div>
                         <div class="message_container">
                             <div class="message_header">
@@ -262,9 +262,9 @@
                 <script id="contact_search_tpl" type="x-handlebars-template">
                 {{#each this}}
                     <li id="{{username}}">
-                        <span class="contact_img"><img src="imgs/{{#if userImg}}{{userImg}}{{else}}{{sex}}.jpg{{/if}}"/></span>
+                        <span class="contact_img"><img src="imgs/{{userImg}}"/></span>
                         <span>{{username}}</span>
-                        <span class="contact_add"><a href="#" class='btn addContact'>+</a></span>
+                        <span class="contact_add"><a href="#" data-role="button" class='btn addContact' id="{{username}}">+</a></span>
                     </li>
                 {{/each}}
                 </script>
