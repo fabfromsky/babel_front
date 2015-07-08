@@ -26,6 +26,8 @@
     <script type="text/javascript" src="scripts/feature/user/user.js"></script>
     <script type="text/javascript" src="scripts/feature/challenges/challenges.js"></script>
     <script type="text/javascript" src="scripts/feature/messages/messages.js"></script>
+    <script type="text/javascript" src="scripts/feature/shutter_contacts/shutter.js"></script>
+    <script type="text/javascript" src="scripts/feature/shutter_contacts/contacts.js"></script>
     <script type="text/javascript" src="js/jqueryUi/jquery-ui.js"></script>
   </head>
 
@@ -51,6 +53,8 @@
         </span>
     </header>
     <div class="content">
+
+<!-- side bar -->
         <span class="gameboard_side_bar">
             <div class="side_bar_bloc user_bloc">
                 <div class="side_bar_icon">
@@ -70,12 +74,14 @@
                 </div>
             </div>
         </span>
+
+<!-- left shutter -->
         <span class="gameboard_shutter_left">
             <div class="shutter_bloc user_bloc">
                 
             </div>
             <script id="user-tpl" type="x-handlebars-template">
-                <span class="user_bloc_img"><img src="imgs/{{ userImg }}" /></span>
+                <span class="user_bloc_img"><img src="imgs/{{userImg}}"/></span>
                 <span class="user_bloc_user">
                     <div class="user_username">{{ username }}</div>
                     <div class="user_score">{{ userPoints }} pts</div>
@@ -116,13 +122,13 @@
                             <div class="message_content">{{content}}</div>
                         </div>
                         <div class="sender_img">
-                            <img src="imgs/{{sender}}.jpg">
+                            <img src="imgs/{{sender}}.jpg"/>
                         </div>
                     </li>
                     {{else}}
                     <li class="message sent">
                         <div class="sender_img">
-                            <img src="imgs/{{sender}}.jpg">
+                            <img src="imgs/{{sender}}.jpg"/>
                         </div>
                         <div class="message_container">
                             <div class="message_header">
@@ -159,6 +165,8 @@
             </script>
             </div>
         </span>
+
+<!-- main -->        
         <span class="gameboard_main opened_shutter">
             <nav class="navbar gameboard_nav">
                 <div class="container-fluid">
@@ -182,7 +190,7 @@
                             </ul>
                         </li>
                         <li class="nav_btn">
-                            <a href="#" role="button"><i class="fa fa-user-plus"></i></a>
+                            <a href="#" role="button" class="contact"><i class="fa fa-user-plus"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -242,7 +250,25 @@
             </div>
         </span>
 
-        <span class="gameboard_shutter_right">
+<!-- right shutter -->
+        <span class="gameboard_shutter_right closed">
+            <h3>Retrouvez des amis</h3>
+            <div class="contact_search">
+                <span class="contacts_selector">
+                    <span class="search_icon"><i class="fa fa-search"></i></span><input type="text" class="search_input" placeholder="Recherche">
+                    <ul class="search_result">
+                    </ul>
+                </span>
+                <script id="contact_search_tpl" type="x-handlebars-template">
+                {{#each this}}
+                    <li id="{{username}}">
+                        <span class="contact_img"><img src="imgs/{{userImg}}"/></span>
+                        <span>{{username}}</span>
+                        <span class="contact_add"><a href="#" data-role="button" class='btn addContact' id="{{username}}">+</a></span>
+                    </li>
+                {{/each}}
+                </script>
+            </div>
         </span>
     </div>
   </body>

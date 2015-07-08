@@ -26,3 +26,4 @@ function getUser(){
     localStorage.setItem("user", JSON.stringify(userData));
   });
 }
+

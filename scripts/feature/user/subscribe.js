@@ -1,10 +1,13 @@
 $(document).ready(function(){
   $(".validate").on("click", function(){
+    debugger;
+    console.log($('.isMale').is(":checked"));
     var username = $(".login").val();
     var password = $(".password").val();
     var mail = $(".mail").val();
     var firstname = $(".firstname").val();
     var lastname = $(".lastname").val();
+    var sex = $(".isMale").is(":checked")? "M" : "F";
 
     if(username == "") {
       $(".login").addClass("required");
@@ -22,7 +25,8 @@ $(document).ready(function(){
         "firstName": firstname,
         "lastName": lastname,
         "pwd": password,
-        "mail": mail
+        "mail": mail,
+        "sex": sex
       }
 
       var userStr = JSON.stringify(user);
@@ -34,7 +38,6 @@ $(document).ready(function(){
 });
 
 function persistUser(user) {
-  debugger;
   $.ajax({
     type:"POST",
     url: "http://localhost:8080/user/save",

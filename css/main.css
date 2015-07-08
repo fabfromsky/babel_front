@@ -8,6 +8,7 @@ body {
   width: 100%;
   position: absolute;
   color: #888;
+  overflow-x: hidden;
 }
 
 header.gameboard_header {
@@ -28,9 +29,8 @@ h2 {
 
 h3 {
   font-size: 20px;
-  color:#333;
+  color:#888;
   margin-top: 8px;
-  margin-left: 10px;
   margin-bottom: 10px;
 }
 
@@ -69,7 +69,10 @@ h3 {
   width: 100%;
   font-size: 0;
   position: relative;
+  display: flex;
 }
+
+/* side bar & shutters */
 
 .gameboard_side_bar {
   height: 100%;
@@ -110,7 +113,6 @@ h3 {
 
 .user_bloc_img img {
   height: 80px;
-  margin-left: -5px;
 }
 
 .user_bloc_user {
@@ -300,15 +302,103 @@ h3 {
   border-right: 1px solid teal;
 }
 
+.gameboard_shutter_right {
+  width: 240px;
+  height: 100%;
+  background: white;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 12px;
+  right: 0;
+  z-index: 1;
+  border-left: 1px solid teal;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #888;
+}
+
 .gameboard_shutter_left.closed {
   margin-left: -300px;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
 }
 
+.gameboard_shutter_right.closed {
+  margin-right: -240px;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+}
+
+.gameboard_shutter_right .contact_search {
+  font-size: 0;
+}
+
+.gameboard_shutter_right span.search_icon {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  border: 1px solid lightgrey;
+  border-right: 0px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 30px;
+  box-sizing: border-box;
+  background: #F4F0EB;
+}
+.gameboard_shutter_right input.search_input {
+  width: 138px;
+  height: 30px; 
+  border: 1px solid lightgrey;
+  border-left: 0px;
+  display: inline-block;
+  font-size: 12px;
+  box-sizing: border-box;
+  vertical-align: top;
+  padding-left: 10px;
+}
+
+.gameboard_shutter_right ul.search_result li {
+  height: 40px;
+  width: 200px;
+  font-size: 14px;
+  list-style-type: none;
+  line-height: 40px;
+  background-color: #F4F0EB;
+  margin-top: 10px;
+}
+
+.gameboard_shutter_right ul.search_result li:first-child {
+  margin-top: 40px;
+}
+
+.gameboard_shutter_right ul.search_result li span.contact_img {
+  height: 40px;
+  width: 40px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 20px;
+}
+
+.gameboard_shutter_right ul.search_result li span img{
+  height: 40px;
+}
+
+.gameboard_shutter_right ul.search_result li span.contact_add {
+  float: right;
+}
+
+.gameboard_shutter_right ul.search_result li span.contact_add a{
+  color: teal;
+  font-weight: bold;
+}
+
+/* main */
 .gameboard_main {
   position: relative;
-  width: calc( 100% - 40px );
+  flex:1;
   height: 100%;
   display: inline-block;
   font-size: 12px;
@@ -319,7 +409,7 @@ h3 {
 }
 
 .gameboard_main.opened_shutter {
-  width: calc( 100% - 380px );
+  flex:1;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
 }
