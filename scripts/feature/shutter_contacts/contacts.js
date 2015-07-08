@@ -1,14 +1,18 @@
 $(document).ready(function(){
+  
+  var username = localStorage.getItem("username");
 
   $('.search_input').keyup(function() {
     searchUser();
   });
 
+  showContacts();
+
 });
 
 function searchUser() {
   var val = $('.search_input').val();
-  if(val != "" && val.length > 2) {
+  if(val != "") {
     $.ajax({
       type:"GET",
       url: "http://localhost:8080/user/search?search=" + val,
@@ -35,20 +39,34 @@ function searchUser() {
 }
 
 function addContact(contactUsername){
-  var username = localStorage.getItem("username");
   var contact = {
     "contact": contactUsername,
     "user": username
   }
 
   var contactStr = JSON.stringify(contact);
-  console.log(contactStr);
   $.ajax({
-      type:"POST",
-      url: "http://localhost:8080/user/contact/add",
-      dataType: "json",
-      contentType: "application/json",
-      data: contactStr
-    });
+    type:"POST",
+    url: "http://localhost:8080/user/contact/add",
+    dataType: "json",
+    contentType: "application/json",
+    data: contactStr
+  });
+}
+
+function showContacts() {
+  $.ajax({
+    type:"GET",
+    url: "http://localhost:8080/contact?username=" + username,
+    dataType: "json",
+    success: function(data) {
+      var contacts = data;
+      return contacts;
+    } 
+  }).then(function(contacts){
+    var contactTplScript = $("#contact_add_tpl").html();
+    var contactTpl = Handlebars.compile(contactTplScript);
+    $(".contacts_list").append(contactTpl(contacts));
+  });
 }
 

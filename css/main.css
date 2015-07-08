@@ -348,7 +348,7 @@ h3 {
   background: #F4F0EB;
 }
 .gameboard_shutter_right input.search_input {
-  width: 138px;
+  width: 169px;
   height: 30px; 
   border: 1px solid lightgrey;
   border-left: 0px;
@@ -359,7 +359,8 @@ h3 {
   padding-left: 10px;
 }
 
-.gameboard_shutter_right ul.search_result li {
+.gameboard_shutter_right ul.search_result li,
+.gameboard_shutter_right ul.contacts_list li {
   height: 40px;
   width: 200px;
   font-size: 14px;
@@ -369,11 +370,13 @@ h3 {
   margin-top: 10px;
 }
 
-.gameboard_shutter_right ul.search_result li:first-child {
-  margin-top: 40px;
+.gameboard_shutter_right ul.search_result li:first-child,
+.gameboard_shutter_right ul.contacts_list li:first-child {
+  margin-top: 20px;
 }
 
-.gameboard_shutter_right ul.search_result li span.contact_img {
+.gameboard_shutter_right ul.search_result li span.contact_img,
+.gameboard_shutter_right ul.contacts_list li span.contact_img {
   height: 40px;
   width: 40px;
   overflow: hidden;
@@ -382,17 +385,24 @@ h3 {
   margin-right: 20px;
 }
 
-.gameboard_shutter_right ul.search_result li span img{
+.gameboard_shutter_right ul.search_result li span img,
+.gameboard_shutter_right ul.contacts_list li span img {
   height: 40px;
 }
 
-.gameboard_shutter_right ul.search_result li span.contact_add {
+.gameboard_shutter_right ul.search_result li span.contact_add,
+.gameboard_shutter_right ul.contacts_list li span.contact_add {
   float: right;
 }
 
-.gameboard_shutter_right ul.search_result li span.contact_add a{
+.gameboard_shutter_right ul.search_result li span.contact_add a,
+.gameboard_shutter_right ul.contacts_list li span.contact_add a {
   color: teal;
   font-weight: bold;
+}
+
+.gameboard_shutter_right h3:not(:first-child) {
+  margin-top: 40px;
 }
 
 /* main */

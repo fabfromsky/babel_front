@@ -269,6 +269,20 @@
                 {{/each}}
                 </script>
             </div>
+            <h3>Ils vous ont ajouté :</h3>
+            <div class="added_contacts">
+                <ul class="contacts_list">
+                </ul>
+            </div>
+            <script id="contact_add_tpl" type="x-handlebars-template">
+                {{#each this}}
+                    <li id="{{username}}">
+                        <span class="contact_img"><img src="imgs/{{userImg}}"/></span>
+                        <span>{{username}}</span>
+                        <span class="contact_add"><a href="#" data-role="button" class='btn addContact' id="{{username}}">+</a></span>
+                    </li>
+                {{/each}}
+                </script>
         </span>
     </div>
   </body>
