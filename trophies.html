@@ -27,6 +27,8 @@
     <script type="text/javascript" src="scripts/feature/challenges/challenges.js"></script>
     <script type="text/javascript" src="scripts/feature/messages/messages.js"></script>
     <script type="text/javascript" src="scripts/feature/trophies/trophies.js"></script>
+    <script type="text/javascript" src="scripts/feature/shutter_contacts/shutter.js"></script>
+    <script type="text/javascript" src="scripts/feature/shutter_contacts/contacts.js"></script>
     <script type="text/javascript" src="js/jqueryUi/jquery-ui.js"></script>
   </head>
 
@@ -76,7 +78,7 @@
                 
             </div>
             <script id="user-tpl" type="x-handlebars-template">
-                <span class="user_bloc_img"><img src="imgs/{{ userImg }}" /></span>
+                <span class="user_bloc_img"><img src="imgs/{{#if userImg}}{{userImg}}{{else}}{{sex}}.jpg{{/if}}"/></span>
                 <span class="user_bloc_user">
                     <div class="user_username">{{ username }}</div>
                     <div class="user_score">{{ userPoints }} pts</div>
@@ -183,7 +185,7 @@
                             </ul>
                         </li>
                         <li class="nav_btn">
-                            <a href="#" role="button"><i class="fa fa-user-plus"></i></a>
+                            <a href="#" role="button" class="contact"><i class="fa fa-user-plus"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -270,7 +272,24 @@
             </div>
         </span>
 
-        <span class="gameboard_shutter_right">
+        <span class="gameboard_shutter_right closed">
+            <h3>Retrouvez des amis</h3>
+            <div class="contact_search">
+                <span class="contacts_selector">
+                    <span class="search_icon"><i class="fa fa-search"></i></span><input type="text" class="search_input" placeholder="Recherche">
+                    <ul class="search_result">
+                    </ul>
+                </span>
+                <script id="contact_search_tpl" type="x-handlebars-template">
+                {{#each this}}
+                    <li id="{{username}}">
+                        <span class="contact_img"><img src="imgs/{{#if userImg}}{{userImg}}{{else}}{{sex}}.jpg{{/if}}"/></span>
+                        <span>{{username}}</span>
+                        <span class="contact_add"><a href="#" class='btn addContact'>+</a></span>
+                    </li>
+                {{/each}}
+                </script>
+            </div>
         </span>
     </div>
   </body>
