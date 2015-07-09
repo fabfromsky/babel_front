@@ -15,7 +15,7 @@ function searchUser() {
   if(val != "") {
     $.ajax({
       type:"GET",
-      url: "http://localhost:8080/user/search?search=" + val,
+      url: "http://localhost:8080/user/search?username=" + username + "&search=" + val,
       dataType: "json",
       success: function(data) {
         var users = data; 
@@ -29,6 +29,7 @@ function searchUser() {
     }).then(function(){
       $('.addContact').on("click", function(){
         addContact($(this).attr("id"));
+        toggleSlide($(this));
       });
     });
   }
@@ -64,9 +65,21 @@ function showContacts() {
       return contacts;
     } 
   }).then(function(contacts){
+    $(".contacts_list").empty();
     var contactTplScript = $("#contact_add_tpl").html();
     var contactTpl = Handlebars.compile(contactTplScript);
     $(".contacts_list").append(contactTpl(contacts));
+  }).then(function(){
+    $('.addContact').on("click", function(){
+      addContact($(this).attr("id"));
+      toggleSlide($(this));
+    });
   });
+}
+
+function toggleSlide(element) {
+  var parent = element.parent().parent()
+  console.log(parent);
+  parent.hide("slide", {direction: "right"}, 500);
 }
 
