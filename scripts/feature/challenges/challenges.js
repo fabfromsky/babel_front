@@ -50,17 +50,33 @@ function answerChallenge(id) {
 
 Handlebars.registerHelper('isPlayer', function(player, options){
   if(player === username) {
-    return options.inverse(this);
-  } else  {
     return options.fn(this);
+  } else  {
+    return options.inverse(this);
   }
 });
 
 Handlebars.registerHelper('isAnswered', function(challengerScore, options){
-  if(challengerScore != null) {
-    return options.inverse(this);
-  } else {
+  if(challengerScore === null) {
     return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
+
+Handlebars.registerHelper('isWinner', function(a, b, c, options){
+  var result;
+  if( a!=null && b!=null ) {
+    if(a>b) {
+      result = "winner";
+    } else if(a<b) {
+      result = "looser"
+    } else if(a==b) {
+      result = "draw"
+    }
+    if(result == c) {
+      return options.fn(this)
+    } 
   }
 });
 

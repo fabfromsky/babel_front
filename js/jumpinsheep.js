@@ -705,8 +705,11 @@ function persist(data) {
     url: "http://localhost:8080/challenges/new",
     contentType: "application/json",
     dataType: "json",
-    data: data
-  }).then(returnToBoard());
+    data: data,
+    success: function() {
+    	alert('toto');
+    }
+  }).then(setTimeout(returnToBoard()), 2000);
  	
 }
 
