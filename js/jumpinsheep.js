@@ -709,7 +709,7 @@ function persist(data) {
     success: function() {
     	alert('toto');
     }
-  }).then(setTimeout(returnToBoard()), 2000);
+  }).then(setTimeout(returnToBoard()), 5000);
  	
 }
 

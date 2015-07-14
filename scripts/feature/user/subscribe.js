@@ -1,7 +1,5 @@
 $(document).ready(function(){
   $(".validate").on("click", function(){
-    debugger;
-    console.log($('.isMale').is(":checked"));
     var username = $(".login").val();
     var password = $(".password").val();
     var mail = $(".mail").val();
@@ -44,7 +42,7 @@ function persistUser(user) {
     contentType: "application/json",
     dataType: "json",
     data: user
-  }).then(redirect(user));
+  }).then(setTimeout(redirect(user)), 5000);
 }
 
 function redirect(user) {
