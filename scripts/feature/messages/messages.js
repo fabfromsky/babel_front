@@ -73,7 +73,7 @@ function sendMessage(){
       setTimeout(function(){
         $('.messages').empty();
         getMessagesByUsername(username);
-      }, 200);
+      }, 2000);
     } else if(receiver == "") {
       alert("veuillez selectionner un destinataire !");
     } else {
