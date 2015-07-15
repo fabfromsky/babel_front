@@ -41,6 +41,7 @@ function getContactsByUsername(){
       return dataStore;
     }
   }).then(function(dataStore){
+    $(".target_selector").empty();
     var contactsData = dataStore;
     var contactsTplScript = $("#contacts-tpl").html();
     var contactsTpl = Handlebars.compile(contactsTplScript);

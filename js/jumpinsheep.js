@@ -644,9 +644,7 @@ function processResult(score) {
 															"</div>" +
 															"<a class='retour_btn btn' href='#'>Retourner sur mon Game Board</a>"
 															);
-		$(".retour_btn").on("click", function() {
-			persist(dataStr);
-		});
+		persist(dataStr);
 
 	} else {
 		$(".gameOverContent").append("<h3 id='challenge_response'>Souhaitez-vous défier un ami?</h3>" +
@@ -674,8 +672,16 @@ function processResult(score) {
 			};
 			var dataStr = JSON.stringify(data2);
 			persist(dataStr);
+			$('.gameOverContent').empty();
+			$('.gameOverContent').append("<h3>Vous avez défiez " + challenger + " à jumpinsheep</h3>" +
+																		"<a class='retour_btn btn' href='index.html'>Retourner sur mon Game Board</a>"
+																	);
 		});
 	}
+	
+	$(".retour_btn").on("click", function() {
+		returnToBoard();
+	});
 }
 
 function saveGame(score) {
@@ -709,7 +715,7 @@ function persist(data) {
     success: function() {
     	alert('toto');
     }
-  }).then(setTimeout(returnToBoard()), 5000);
+  });
  	
 }
 
