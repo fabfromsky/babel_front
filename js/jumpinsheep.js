@@ -665,7 +665,7 @@ function processResult(score) {
 				"player" : localStorage.getItem("username"),
 				"playerScore" : score,
 				"game" : {
-					"gameId" : "jumpinsheep"
+					"gameId" : 2
 				},
 				"challenger" :  challenger,
 				"date" : date
@@ -688,7 +688,7 @@ function saveGame(score) {
 
 	var username = localStorage.getItem("username");
 	var game = {
-		"game" : "jumpinsheep",
+		"game" : 2,
 		"user": username,
 		"score": score
 	}

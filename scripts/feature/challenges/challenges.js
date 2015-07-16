@@ -41,7 +41,7 @@ function answerChallenge(id) {
     url: "http://localhost:8080/challenges?challengeid=" + id,
     dataType: "json"
   }).then(function(data){
-    var game = data.game.gameId;
+    var game = data.game.gameTitle;
     localStorage.setItem("challenge", JSON.stringify(data));
     $(".game_overlay").toggleClass("hide");
     $("." + game).toggleClass("hide");

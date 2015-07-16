@@ -99,8 +99,8 @@
                         <li class="challenge">
                             <div class="challengeLink" id="{{ challengeId }}">
                                 <i class="fa fa-arrow-left"></i>vous avez défié 
-                                <span class="playername">{{ challenger }}</span> à 
-                                <span class="gamename">{{ game.gameId }}</span> !
+                                <span class="playername">{{ challenger }}</span> au jeu 
+                                <span class="gamename">{{ game.gameName }}</span> !
                             </div>
                         </li>
                     {{else}}
@@ -108,8 +108,8 @@
                             <li class="challenge">
                                 <div class="challengeLink" id="{{ challengeId }}"> 
                                     <i class="fa fa-smile-o"></i> Vous avez battu
-                                    <span class="playername">{{ challenger }}</span> à 
-                                    <span class="gamename">{{ game.gameId }}</span> !
+                                    <span class="playername">{{ challenger }}</span> au jeu 
+                                    <span class="gamename">{{ game.gameName }}</span> !
                                 </div>
                             </li>
                         {{/isWinner}}
@@ -118,8 +118,8 @@
                                 <div class="challengeLink" id="{{ challengeId }}">
                                     <i class="fa fa-frown-o"></i>
                                     <span class="playername">{{ challenger }}</span>
-                                    vous a battu à 
-                                    <span class="gamename">{{ game.gameId }}</span> !
+                                    vous a battu au jeu 
+                                    <span class="gamename">{{ game.gameName }}</span> !
                                 </div>
                             </li>
                         {{/isWinner}}
@@ -127,8 +127,8 @@
                             <li class="challenge">
                                 <div class="challengeLink" id="{{ challengeId }}"> 
                                     Vous avez fait égalité avec
-                                    <span class="playername">{{ challenger }}</span> à 
-                                    <span class="gamename">{{ game.gameId }}</span> !
+                                    <span class="playername">{{ challenger }}</span> au jeu 
+                                    <span class="gamename">{{ game.gameName }}</span> !
                                 </div>
                             </li>
                         {{/isWinner}}
@@ -138,8 +138,8 @@
                         <li class="challenge">
                             <button class="challengeLink" onclick="answerChallenge({{challengeId}})" id="{{ challengeId }}">
                                 <i class="fa fa-arrow-right"></i>
-                                <span class="playername">{{ player }}</span> vous a défié à 
-                                <span class="gamename">{{ game.gameId }}</span> !
+                                <span class="playername">{{ player }}</span> vous a défié au jeu 
+                                <span class="gamename">{{ game.gameName }}</span> !
                             </button>
                         </li>
                     {{else}}
@@ -147,8 +147,8 @@
                             <li class="challenge">
                                 <div class="challengeLink" id="{{ challengeId }}"> 
                                     <i class="fa fa-smile-o"></i> Vous avez battu
-                                    <span class="playername">{{ player }}</span> à 
-                                    <span class="gamename">{{ game.gameId }}</span> !
+                                    <span class="playername">{{ player }}</span> au jeu 
+                                    <span class="gamename">{{ game.gameName }}</span> !
                                 </div>
                             </li>
                         {{/isWinner}}
@@ -157,8 +157,8 @@
                                 <div class="challengeLink" id="{{ challengeId }}">
                                     <i class="fa fa-frown-o"></i>
                                     <span class="playername">{{ player }}</span>
-                                    vous a battu à 
-                                    <span class="gamename">{{ game.gameId }}</span> !
+                                    vous a battu au jeu 
+                                    <span class="gamename">{{ game.gameName }}</span> !
                                 </div>
                             </li>
                         {{/isWinner}}
@@ -166,8 +166,8 @@
                             <li class="challenge">
                                 <div class="challengeLink" id="{{ challengeId }}"> 
                                     Vous avez fait égalité avec
-                                    <span class="playername">{{ player }}</span> à 
-                                    <span class="gamename">{{ game.gameId }}</span> !
+                                    <span class="playername">{{ player }}</span> au jeu 
+                                    <span class="gamename">{{ game.gameName }}</span> !
                                 </div>
                             </li>
                         {{/isWinner}}
@@ -275,7 +275,7 @@
                     <script id="games-tpl" type="x-handlebars-template">
                         {{#each this}}
                         <li class="game">
-                            <a class="game_btn" href="#" id="{{gameId}}" style="background-image: url('imgs/{{gameImg}}')">
+                            <a class="game_btn" href="#" id="{{gameTitle}}" style="background-image: url('imgs/{{gameImg}}')">
                                 <div class="title">{{gameName}}</div>
                                 <div class="description">{{gameDescription}}</div>
                             </a>
