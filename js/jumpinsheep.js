@@ -685,11 +685,15 @@ function processResult(score) {
 }
 
 function saveGame(score) {
-
+	debugger
 	var username = localStorage.getItem("username");
 	var game = {
-		"game" : 2,
-		"user": username,
+		"game" : {
+			"gameId" : 2
+		},
+		"user": {
+			"username": username
+		},
 		"score": score
 	}
 
