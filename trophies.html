@@ -73,7 +73,8 @@
                 </div>
             </div>
         </span>
-        <span class="gameboard_shutter_left">
+        
+       <span class="gameboard_shutter_left">
             <div class="shutter_bloc user_bloc">
                 
             </div>
@@ -81,7 +82,7 @@
                 <span class="user_bloc_img"><img src="imgs/{{userImg}}"/></span>
                 <span class="user_bloc_user">
                     <div class="user_username">{{ username }}</div>
-                    <div class="user_score">{{ userPoints }} pts</div>
+                    <div class="user_score">{{ points }} pts</div>
                 </span> 
             </script>
             <div class="shutter_bloc challenges_bloc">  
@@ -91,12 +92,12 @@
             <script id="challenges-tpl" type="x-handlebars-template">
                 <ul class="challenges">
                 {{#each this}}
-                {{#isPlayer player}}
+                {{#isPlayer player.username}}
                     {{#isAnswered challengerScore}}
                         <li class="challenge">
                             <div class="challengeLink" id="{{ challengeId }}">
                                 <i class="fa fa-arrow-left"></i>vous avez défié 
-                                <span class="playername">{{ challenger }}</span> au jeu 
+                                <span class="playername">{{ challenger.username }}</span> au jeu 
                                 <span class="gamename">{{ game.gameName }}</span> !
                             </div>
                         </li>
@@ -105,7 +106,7 @@
                             <li class="challenge">
                                 <div class="challengeLink" id="{{ challengeId }}"> 
                                     <i class="fa fa-smile-o"></i> Vous avez battu
-                                    <span class="playername">{{ challenger }}</span> au jeu 
+                                    <span class="playername">{{ challenger.username }}</span> au jeu 
                                     <span class="gamename">{{ game.gameName }}</span> !
                                 </div>
                             </li>
@@ -114,7 +115,7 @@
                             <li class="challenge">
                                 <div class="challengeLink" id="{{ challengeId }}">
                                     <i class="fa fa-frown-o"></i>
-                                    <span class="playername">{{ challenger }}</span>
+                                    <span class="playername">{{ challenger.username }}</span>
                                     vous a battu au jeu 
                                     <span class="gamename">{{ game.gameName }}</span> !
                                 </div>
@@ -124,7 +125,7 @@
                             <li class="challenge">
                                 <div class="challengeLink" id="{{ challengeId }}"> 
                                     Vous avez fait égalité avec
-                                    <span class="playername">{{ challenger }}</span> au jeu 
+                                    <span class="playername">{{ challenger.username }}</span> au jeu 
                                     <span class="gamename">{{ game.gameName }}</span> !
                                 </div>
                             </li>
@@ -135,7 +136,7 @@
                         <li class="challenge">
                             <button class="challengeLink" onclick="answerChallenge({{challengeId}})" id="{{ challengeId }}">
                                 <i class="fa fa-arrow-right"></i>
-                                <span class="playername">{{ player }}</span> vous a défié au jeu 
+                                <span class="playername">{{ player.username }}</span> vous a défié au jeu 
                                 <span class="gamename">{{ game.gameName }}</span> !
                             </button>
                         </li>
@@ -144,7 +145,7 @@
                             <li class="challenge">
                                 <div class="challengeLink" id="{{ challengeId }}"> 
                                     <i class="fa fa-smile-o"></i> Vous avez battu
-                                    <span class="playername">{{ player }}</span> au jeu 
+                                    <span class="playername">{{ player.username }}</span> au jeu 
                                     <span class="gamename">{{ game.gameName }}</span> !
                                 </div>
                             </li>
@@ -153,7 +154,7 @@
                             <li class="challenge">
                                 <div class="challengeLink" id="{{ challengeId }}">
                                     <i class="fa fa-frown-o"></i>
-                                    <span class="playername">{{ player }}</span>
+                                    <span class="playername">{{ player.username }}</span>
                                     vous a battu au jeu 
                                     <span class="gamename">{{ game.gameName }}</span> !
                                 </div>
@@ -163,7 +164,7 @@
                             <li class="challenge">
                                 <div class="challengeLink" id="{{ challengeId }}"> 
                                     Vous avez fait égalité avec
-                                    <span class="playername">{{ player }}</span> au jeu 
+                                    <span class="playername">{{ player.username }}</span> au jeu 
                                     <span class="gamename">{{ game.gameName }}</span> !
                                 </div>
                             </li>
@@ -192,13 +193,13 @@
                             <div class="message_content">{{content}}</div>
                         </div>
                         <div class="sender_img">
-                            <img src="imgs/{{sender}}.jpg">
+                            <img src="imgs/{{sender}}.jpg"/>
                         </div>
                     </li>
                     {{else}}
                     <li class="message sent">
                         <div class="sender_img">
-                            <img src="imgs/{{sender}}.jpg">
+                            <img src="imgs/{{sender}}.jpg"/>
                         </div>
                         <div class="message_container">
                             <div class="message_header">
@@ -235,6 +236,7 @@
             </script>
             </div>
         </span>
+
         <span class="gameboard_main opened_shutter">
             <nav class="navbar gameboard_nav">
                 <div class="container-fluid">
