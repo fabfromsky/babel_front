@@ -53,9 +53,6 @@ function addContact(contactUsername){
     contentType: "application/json",
     data: contactStr
   });
-
-  getContactsByUsername();
-  
 }
 
 function showContacts() {
@@ -83,5 +80,8 @@ function showContacts() {
 function toggleSlide(element) {
   var parent = element.parent().parent();
   parent.hide("slide", {direction: "right"}, 500);
+  setTimeout(function(){
+    getContactsByUsername();
+  }, 2000);
 }
 

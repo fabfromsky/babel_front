@@ -640,7 +640,7 @@ function processResult(score) {
 		data.challengerScore = score;
 		var dataStr = JSON.stringify(data);
 		$(".gameOverContent").append("<div class='scores'>"+
-																"<span class='user_result'>" + data.challenger.username + ": " + score + " </span><span>/ " + data.player.username + ": " + data.playerScore + "</span>" +
+																"<span class='user_result'>" + data.challenger + ": " + score + " </span><span>/ " + data.player + ": " + data.playerScore + "</span>" +
 															"</div>" +
 															"<a class='retour_btn btn' href='#'>Retourner sur mon Game Board</a>"
 															);
@@ -662,16 +662,12 @@ function processResult(score) {
 			var date = Date.now().toString();
 
 			var data2 = {
-				"player" : {
-					"username": localStorage.getItem("username")
-				},
+				"player" :  localStorage.getItem("username"),
 				"playerScore" : score,
 				"game" : {
 					"gameId" : 2
 				},
-				"challenger" :  {
-					"username": challengerUsername
-				},
+				"challenger" :  challengerUsername,
 				"date" : date
 			};
 			var dataStr = JSON.stringify(data2);
@@ -689,11 +685,10 @@ function processResult(score) {
 }
 
 function saveGame(score) {
-	
 	var username = localStorage.getItem("username");
 	var game = {
 		"game" : {
-			"gameId" : 2
+			"gameId": 2
 		},
 		"user": {
 			"username": username
