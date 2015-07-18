@@ -35,19 +35,25 @@ $(document).ready(function(){
   })
 });
 
-function persistUser(user) {
+function persistUser(userStr) {
+  debugger;
   $.ajax({
     type:"POST",
     url: "http://localhost:8080/user/save",
     contentType: "application/json",
     dataType: "json",
-    data: user
-  }).then(function(){
-    var data = JSON.parse(user);
-    localStorage.setItem("username", data.username);
-    setTimeout(redirect()), 5000);
+    data: userStr
+  });
+  var userData = JSON.parse(userStr);
+  store(userData);
 }
 
+function store(userData) {
+    localStorage.setItem("username", userData.username);
+    redirect();
+}
 function redirect() {
-  location.href = "index.html";
+  setTimeout(function(){
+    location.href = "index.html";
+  }, 2000);
 }
