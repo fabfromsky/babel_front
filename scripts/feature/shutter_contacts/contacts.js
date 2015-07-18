@@ -41,8 +41,12 @@ function searchUser() {
 
 function addContact(contactUsername){
   var contact = {
-    "contact": contactUsername,
-    "user": username
+    "contact": {
+      "username": contactUsername
+    },
+    "user": {
+      "username": username
+    }
   }
 
   var contactStr = JSON.stringify(contact);

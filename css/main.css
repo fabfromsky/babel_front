@@ -90,7 +90,7 @@ h3 {
 
 .gameboard_side_bar .side_bar_bloc,
 .shutter_bloc {
-  border-bottom: 1px solid #004D4D;
+  border-bottom: 1px solid teal;
   box-sizing: border-box;
 }
 

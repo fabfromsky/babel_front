@@ -54,8 +54,12 @@ function sendMessage(){
     var receiver = $('.target_selector_input').val();
     var msg = $('.message_area').val();
     var data = JSON.stringify({
-          "sender" : username,
-          "receiver" : receiver,
+          "sender" : {
+            "username": username
+          },
+          "receiver" : {
+            "username" : receiver
+          },
           "content" : msg
         });
     if(msg != "" && receiver != "") {

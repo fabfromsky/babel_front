@@ -42,11 +42,12 @@ function persistUser(user) {
     contentType: "application/json",
     dataType: "json",
     data: user
-  }).then(setTimeout(redirect(user)), 5000);
+  }).then(function(){
+    var data = JSON.parse(user);
+    localStorage.setItem("username", data.username);
+    setTimeout(redirect()), 5000);
 }
 
-function redirect(user) {
-  var data = JSON.parse(user);
-  localStorage.setItem("username", data.username);
+function redirect() {
   location.href = "index.html";
 }

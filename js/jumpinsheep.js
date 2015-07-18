@@ -637,37 +637,49 @@ function processResult(score) {
 
 	if(challenge != "null") {
 		var data = JSON.parse(challenge);
+		var challenger = {
+			"username" : data.challengerName
+		};
+		var player = {
+			"username" : data.playerName
+		};
 		data.challengerScore = score;
+		data.challenger = challenger;
+		data.player = player;
 		var dataStr = JSON.stringify(data);
 		$(".gameOverContent").append("<div class='scores'>"+
-																"<span class='user_result'>" + data.challenger + ": " + score + " </span><span>/ " + data.player + ": " + data.playerScore + "</span>" +
-															"</div>" +
-															"<a class='retour_btn btn' href='#'>Retourner sur mon Game Board</a>"
-															);
+			"<span class='user_result'>" + data.challenger + ": " + score + " </span><span>/ " + data.player + ": " + data.playerScore + "</span>" +
+			"</div>" +
+			"<a class='retour_btn btn' href='#'>Retourner sur mon Game Board</a>"
+			);
 		persist(dataStr);
 
 	} else {
 		$(".gameOverContent").append("<h3 id='challenge_response'>Souhaitez-vous défier un ami?</h3>" +
-															 "<div class='username_input'>" +
-															 	"<label for='username'>Selectionner un ami:  </label>" +
-															 	"<input class='contact_username' name='username' placeholder='username'></input>" +
-															 "</div><div class='btns'>" +
-															 	"<a class='challenge_btn btn' href='#'>Défier</a>" +
-															 	"<a class='retour_btn btn' href='index.html'>Retourner sur mon Game Board</a>" +
-															 "</div>"
-															);	
+			 "<div class='username_input'>" +
+			 	"<label for='username'>Selectionner un ami:  </label>" +
+			 	"<input class='contact_username' name='username' placeholder='username'></input>" +
+			 "</div><div class='btns'>" +
+			 	"<a class='challenge_btn btn' href='#'>Défier</a>" +
+			 	"<a class='retour_btn btn' href='index.html'>Retourner sur mon Game Board</a>" +
+			 "</div>"
+			);	
 
 		$('.challenge_btn').on('click', function() {
 			var challengerUsername = $('.contact_username').val();
 			var date = Date.now().toString();
 
 			var data2 = {
-				"player" :  localStorage.getItem("username"),
+				"player" :  {
+					"username" : localStorage.getItem("username")
+				},
 				"playerScore" : score,
 				"game" : {
 					"gameId" : 2
 				},
-				"challenger" :  challengerUsername,
+				"challenger" : {
+					"username" : challengerUsername	
+				},
 				"date" : date
 			};
 			var dataStr = JSON.stringify(data2);

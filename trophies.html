@@ -73,6 +73,7 @@
                 </div>
             </div>
         </span>
+<!-- left shutter -->
         <span class="gameboard_shutter_left">
             <div class="shutter_bloc user_bloc">
                 
@@ -91,12 +92,12 @@
             <script id="challenges-tpl" type="x-handlebars-template">
                 <ul class="challenges">
                 {{#each this}}
-                {{#isPlayer player}}
+                {{#isPlayer playerName}}
                     {{#isAnswered challengerScore}}
                         <li class="challenge">
                             <div class="challengeLink" id="{{ challengeId }}">
                                 <i class="fa fa-arrow-left"></i>vous avez défié 
-                                <span class="playername">{{ challenger }}</span> au jeu 
+                                <span class="playername">{{ challengerName }}</span> au jeu 
                                 <span class="gamename">{{ game.gameName }}</span> !
                             </div>
                         </li>
@@ -105,7 +106,7 @@
                             <li class="challenge">
                                 <div class="challengeLink" id="{{ challengeId }}"> 
                                     <i class="fa fa-smile-o"></i> Vous avez battu
-                                    <span class="playername">{{ challenger }}</span> au jeu 
+                                    <span class="playername">{{ challengerName }}</span> au jeu 
                                     <span class="gamename">{{ game.gameName }}</span> !
                                 </div>
                             </li>
@@ -114,7 +115,7 @@
                             <li class="challenge">
                                 <div class="challengeLink" id="{{ challengeId }}">
                                     <i class="fa fa-frown-o"></i>
-                                    <span class="playername">{{ challenger }}</span>
+                                    <span class="playername">{{ challengerName }}</span>
                                     vous a battu au jeu 
                                     <span class="gamename">{{ game.gameName }}</span> !
                                 </div>
@@ -124,7 +125,7 @@
                             <li class="challenge">
                                 <div class="challengeLink" id="{{ challengeId }}"> 
                                     Vous avez fait égalité avec
-                                    <span class="playername">{{ challenger }}</span> au jeu 
+                                    <span class="playername">{{ challengerName }}</span> au jeu 
                                     <span class="gamename">{{ game.gameName }}</span> !
                                 </div>
                             </li>
@@ -135,7 +136,7 @@
                         <li class="challenge">
                             <button class="challengeLink" onclick="answerChallenge({{challengeId}})" id="{{ challengeId }}">
                                 <i class="fa fa-arrow-right"></i>
-                                <span class="playername">{{ player }}</span> vous a défié au jeu 
+                                <span class="playername">{{ playerName }}</span> vous a défié au jeu 
                                 <span class="gamename">{{ game.gameName }}</span> !
                             </button>
                         </li>
@@ -144,7 +145,7 @@
                             <li class="challenge">
                                 <div class="challengeLink" id="{{ challengeId }}"> 
                                     <i class="fa fa-smile-o"></i> Vous avez battu
-                                    <span class="playername">{{ player }}</span> au jeu 
+                                    <span class="playername">{{ playerName }}</span> au jeu 
                                     <span class="gamename">{{ game.gameName }}</span> !
                                 </div>
                             </li>
@@ -153,7 +154,7 @@
                             <li class="challenge">
                                 <div class="challengeLink" id="{{ challengeId }}">
                                     <i class="fa fa-frown-o"></i>
-                                    <span class="playername">{{ player }}</span>
+                                    <span class="playername">{{ playerName }}</span>
                                     vous a battu au jeu 
                                     <span class="gamename">{{ game.gameName }}</span> !
                                 </div>
@@ -181,29 +182,29 @@
                 </div>
                 <script id="messages-tpl" type="x-handlebars-template">
                 {{#each this}}
-                    {{#isReceived sender}}
+                    {{#isReceived senderName}}
                     <li class="message received">
                         <div class="message_container">
                             <div class="message_header">
                                 <span class="message_sender">de 
-                                    <span class="user">{{sender}}</span>
+                                    <span class="user">{{senderName}}</span>
                                 </span>
                             </div>
                             <div class="message_content">{{content}}</div>
                         </div>
                         <div class="sender_img">
-                            <img src="imgs/{{sender}}.jpg">
+                            <img src="imgs/{{senderName}}.jpg"/>
                         </div>
                     </li>
                     {{else}}
                     <li class="message sent">
                         <div class="sender_img">
-                            <img src="imgs/{{sender}}.jpg">
+                            <img src="imgs/{{senderName}}.jpg"/>
                         </div>
                         <div class="message_container">
                             <div class="message_header">
                                 <span class="message_sender">à 
-                                    <span class="user">{{receiver}}</span>
+                                    <span class="user">{{receiverName}}</span>
                                 </span>
                             </div>
                             <div class="message_content">{{content}}</div>
@@ -230,11 +231,12 @@
                 
                 <script id="contacts-tpl" type="x-handlebars-template">
                 {{#each this}}
-                <option value={{contact}}>{{contact}}</option>
+                <option value={{contactName}}>{{contactName}}</option>
                 {{/each}}
             </script>
             </div>
         </span>
+<!-- main -->        
         <span class="gameboard_main opened_shutter">
             <nav class="navbar gameboard_nav">
                 <div class="container-fluid">
