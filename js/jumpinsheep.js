@@ -648,7 +648,7 @@ function processResult(score) {
 		data.player = player;
 		var dataStr = JSON.stringify(data);
 		$(".gameOverContent").append("<div class='scores'>"+
-			"<span class='user_result'>" + data.challenger + ": " + score + " </span><span>/ " + data.player + ": " + data.playerScore + "</span>" +
+			"<span class='user_result'>" + data.challengerName + ": " + score + " </span><span>/ " + data.playerName + ": " + data.playerScore + "</span>" +
 			"</div>" +
 			"<a class='retour_btn btn' href='#'>Retourner sur mon Game Board</a>"
 			);
