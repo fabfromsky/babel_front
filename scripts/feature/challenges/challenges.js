@@ -15,25 +15,32 @@ function getChallengesByUsername(){
       return dataStore;
     }
   }).then(function(dataStore){
+    var date;
+    var day;
+    var hours;
+    var minutes;
+    var seconds;
+    for(var i=0; i<dataStore.length; i++) {
+      date = new Date(JSON.parse(dataStore[i].date));
+      day = date.getDate();
+      month = "0" + date.getMonth();
+      year = date.getFullYear();
+      hours = date.getHours();
+      minutes = "0" + date.getMinutes();
+      date = "Le " + day + " " + month.substr(-2) + " " + year + " à " + hours + "H" + minutes.substr(-2);  
+      dataStore[i].date = date;
+    }
+    console.log(dataStore);
     var challengesData = dataStore;
     var challengesTplScript = $("#challenges-tpl").html();
     var challengesTpl = Handlebars.compile(challengesTplScript);
     $(".liste_challenges").append(challengesTpl(challengesData));
+
+    var allChallengesTplScript = $("#all-challenges-tpl").html();
+    var allChallengesTpl = Handlebars.compile(allChallengesTplScript);
+    $(".challenges_list").append(allChallengesTpl(challengesData));
   });
 }
-
-/*function getChallengesByPlayer(username){
-  var dataStore = null;
-  $.ajax({
-    type:"GET",
-    url: "http://localhost:8080/challenges?player=" + username,
-    dataType: "json",
-    success: function(data) {
-      dataStore = data;
-      return dataStore;
-    }
-  });
-}*/
 
 function answerChallenge(id) {
   $.ajax({
