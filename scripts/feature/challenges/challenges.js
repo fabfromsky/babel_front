@@ -30,15 +30,17 @@ function getChallengesByUsername(){
       date = "Le " + day + " " + month.substr(-2) + " " + year + " à " + hours + "H" + minutes.substr(-2);  
       dataStore[i].date = date;
     }
-    console.log(dataStore);
     var challengesData = dataStore;
     var challengesTplScript = $("#challenges-tpl").html();
     var challengesTpl = Handlebars.compile(challengesTplScript);
     $(".liste_challenges").append(challengesTpl(challengesData));
-
-    var allChallengesTplScript = $("#all-challenges-tpl").html();
-    var allChallengesTpl = Handlebars.compile(allChallengesTplScript);
-    $(".challenges_list").append(allChallengesTpl(challengesData));
+    var template = $("#all-challenges-tpl");
+    if($(template.length != 0)) {
+      var allChallengesTplScript = $("#all-challenges-tpl").html();
+      var allChallengesTpl = Handlebars.compile(allChallengesTplScript);
+      $(".challenges_list").append(allChallengesTpl(challengesData));
+    
+    }
   });
 }
 

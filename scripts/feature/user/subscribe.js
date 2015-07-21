@@ -36,7 +36,6 @@ $(document).ready(function(){
 });
 
 function persistUser(userStr) {
-  debugger;
   $.ajax({
     type:"POST",
     url: "http://localhost:8080/user/save",
