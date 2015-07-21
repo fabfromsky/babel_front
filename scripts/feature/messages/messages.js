@@ -63,7 +63,6 @@ function sendMessage(){
           "content" : msg
         });
     if(msg != "" && receiver != "") {
-      console.log(data);
       $.ajax({
         type:"POST",
         url: "http://localhost:8080/messages/new",

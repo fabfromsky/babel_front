@@ -33,7 +33,7 @@ var Base = function() {
 
 	//Sprite clipping
 	this.cx = 0;
-	this.cy = 614;
+	this.cy = 750;
 	this.cwidth = 100;
 	this.cheight = 5;
 
@@ -60,8 +60,8 @@ var Player = function() {
 	this.isMovingRight = false;
 	this.isDead = false;
 
-	this.width = 55;
-	this.height = 40;
+	this.width = 80;
+	this.height = 60;
 
 	//Sprite clipping
 	this.cx = 0;
@@ -646,6 +646,7 @@ function processResult(score) {
 		data.challengerScore = score;
 		data.challenger = challenger;
 		data.player = player;
+		data.date = Date.now().toString();
 		var dataStr = JSON.stringify(data);
 		$(".gameOverContent").append("<div class='scores'>"+
 			"<span class='user_result'>" + data.challengerName + ": " + score + " </span><span>/ " + data.playerName + ": " + data.playerScore + "</span>" +
